@@ -1,0 +1,4 @@
+productID,name,type,description,price,imagefileName,vendorID
+P1,Coke,Drink,,15000,,V1
+P2,Pho,Food,,35000,,V2
+P3,Hoddie,Clothes,,250000,,V3
