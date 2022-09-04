@@ -31,7 +31,7 @@
                 <li><a href="#">Copyright</a></li>
                 <li><a href="#">Policy</a></li>
                 <li><a href="#">Helps link</a></li>
-                <li><a href="./Customer_pages/Customer_home_page.html">Customer-homepage</a></li> 
+                <li><a href="./Customer_pages/Customer_home_page.php">Customer-homepage</a></li> 
                 <li><a href="./Customer_pages/Product_details.html">Product details</a></li>  
                 <li><a href="./Customer_pages/products_page.html">Product page</a></li>
                 <li><a href="./Myaccount/Myaccount.html">My Account</a></li>

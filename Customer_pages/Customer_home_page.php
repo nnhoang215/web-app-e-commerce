@@ -174,7 +174,7 @@
                 <div class="row-products">
                 
                 <?php
-                $file = fopen('../dbFiles/Product.csv', 'r');
+                $file = fopen('../dbFiles/Product.db.csv', 'r');
 
                 // Headers
                 $headers = fgetcsv($file);
