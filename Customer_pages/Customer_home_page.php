@@ -167,6 +167,43 @@
                 </div>
             </div>
                 </div>
+
+
+                <div class="special-deals">
+                    <h3 class="special-deals-header">All products</h1>
+                <div class="row-products">
+                
+                <?php
+                $file = fopen('../dbFiles/Product.csv', 'r');
+
+                // Headers
+                $headers = fgetcsv($file);
+
+                // Rows
+                $data = [];
+                while (($row = fgetcsv($file)) !== false)
+                {
+                    $item = [];
+                    foreach ($row as $key => $value)
+                        $item[$headers[$key]] = $value ?: null;
+                        echo 
+                        '
+                        <div class="col-product">
+                            <a href="#">
+                                <img src="/img/'. $item['imagefileName'] .'" alt="">
+                            <p class="product-des">'. $item['name'] .'</p>
+                            <p class="price">'. $item['price'] .'</p>
+                            </a>
+                        </div>
+                        ';
+                    $data[] = $item;
+                }
+                // Close file
+                fclose($file);
+                ?>
+                
+            </div>
+                </div>
         </section>
             
         </section>
