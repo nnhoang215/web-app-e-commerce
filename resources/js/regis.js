@@ -132,3 +132,73 @@ function validate(){
     }
 
 }
+
+function validateSellerEmail(){
+    var email = document.getElementById('seller-email').value;
+    if (email.length == 0 || email == null) {
+        emailError.innerHTML = 'Email is required';
+        return false;
+    }
+    if (email.length < 5) {
+        emailError.innerHTML = 'Email is too short';
+        return false;
+    }
+    emailError.innerHTML = '';
+    return true;
+}
+
+function validateProductName(){
+    var pName = document.getElementById('product-name').value;
+    if (pName.length == 0 || pName == null) {
+        pNameError.innerHTML = 'Product name is required';
+        return false;
+    }
+    if (pName.length < 5) {
+        pNameError.innerHTML = 'Product name is too short';
+        return false;
+    }
+    pNameError.innerHTML = '';
+    return true;
+}
+
+function validatepProductType(){
+    var pType = document.getElementById('product-type').value;
+    if (pType.length == 0 || pType == null) {
+        pTypeError.innerHTML = 'Product type is required';
+        return false;
+    }
+    if (pType.length < 5) {
+        pTypeError.innerHTML = 'Product type is too short';
+        return false;
+    }
+    pTypeError.innerHTML = '';
+    return true;
+}
+
+function validatepDescription(){
+    var des = document.getElementById('desciption').value;
+    if (des.length == 0 || des == null) {
+        desciptionError.innerHTML = 'Description is required';
+        return false;
+    }
+    if (des.length < 5) {
+        desciptionError.innerHTML = 'Description is too short';
+        return false;
+    }
+    desciptionError.innerHTML = '';
+    return true;
+}
+
+function validatepProductTag(){
+    var pTag = document.getElementById('product-tag').value;
+    if (pTag.length == 0 || pTag == null) {
+        tagError.innerHTML = 'Product tag is required';
+        return false;
+    }
+    if (pTag.length < 5) {
+        tagError.innerHTML = 'Product tag is too short';
+        return false;
+    }
+    tagError.innerHTML = '';
+    return true;
+}
