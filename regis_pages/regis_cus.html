@@ -3,6 +3,7 @@
 <html>
     <head>
         <title>shopee web</title>
+        <script defer src="/resources/js/regis.js"></script>
         <link rel="stylesheet" href="/resources/css/style.css">
     </head>
     <body>
@@ -24,52 +25,60 @@
         </header>
         <section class="regis-form">
             <div class="container">
-                <form action="#" method="#">
+                <form id="form" action="#" method="#">
                     <div class="row">
                         <div class="col">
-                            <label for="username">User name</label>
-                            <input type="text" name="username" id="username">
+                            <label for="username">Username</label>
+                            <input type="text" name="username" id="username" onkeyup="validateName()">
+                            <span id="nameError"></span>
                         </div>
                         <div class="col">
                             <label for="lastname">New Password</label>
-                            <input type="text" name="password" id="password">
+                            <input type="text" name="password" id="password" onkeyup="validatePass()">
+                            <span id="passError"></span>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col">
                             <label for="firstname">First Name</label>
-                            <input type="text" name="firstname" id="firstname" >
+                            <input type="text" name="firstname" id="firstname" onkeyup="validateFname()">
+                            <span id="fnameError"></span>
                         </div>
                         <div class="col">
                             <label for="lastname">Last Name</label>
-                            <input type="text" name="lastname" id="lastname">
+                            <input type="text" name="lastname" id="lastname" onkeyup="validateLname()">
+                            <span id="lnameError"></span>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col">
                             <label for="email">Email</label>
-                            <input type="email" name="email" id="email">
+                            <input type="email" name="email" id="email" onkeyup="validateEmail()">
+                            <span id="emailError"></span>
                         </div>
                         <div class="col" id="radio">
                             <label for="gender">Gender: </label>
-                            <input type="radio" name="man" id="man">
+                            <input type="radio" name="gender" id="man">
                             <label for="man">Man</label>
-                            <input type="radio" name="woman" id="woman">
+                            <input type="radio" name="gender" id="woman">
                             <label for="woman">Woman</label>
+                            <span id="radioError"></span>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col">
                             <label for="DOB">Date Of Birth</label>
                             <input type="date" name="DOB" id="DOB">
+                            <span id="DOBError"></span>
                         </div>
                         <div class="col">
                             <label for="address">Address</label>
-                            <input type="text" name="address" id="address">
+                            <input type="text" name="address" id="address" onclick="validateAddress()">
+                            <span id="addressError"></span>
                         </div>
                     </div>
                     <div class="submit-container">
-                        <input type="submit" id="submit">
+                        <input type="submit" id="submit" onclick="validate()">
                     </div>
                 </form>
             </div>
