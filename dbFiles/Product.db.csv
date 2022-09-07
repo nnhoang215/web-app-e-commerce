@@ -1,10 +1,10 @@
 productID,name,type,description,price,imagefileName,vendorID
 P1,"Coca Cola",Drink,"Coca-Cola is the world’s favorite soft drink and has been enjoyed since 1886. Whether you want a 150ml mini can or a large 1.5 liter bottle for sharing, you can find Coca-Cola Classic in a variety of sizes to suit every lifestyle and occasion.",15000,coke.jpeg,V1
-P2,Pho,Food,,35000,pho.jpeg,V2
-P3,Hoodie,Clothes,,250000,hoodie.jpeg,V3
-P1,"Coca Cola",Drink,"Coca-Cola is the world’s favorite soft drink and has been enjoyed since 1886. Whether you want a 150ml mini can or a large 1.5 liter bottle for sharing, you can find Coca-Cola Classic in a variety of sizes to suit every lifestyle and occasion.",15000,coke.jpeg,V1
-P2,Pho,Food,,35000,pho.jpeg,V2
-P3,Hoodie,Clothes,,250000,hoodie.jpeg,V3
-P1,"Coca Cola",Drink,"Coca-Cola is the world’s favorite soft drink and has been enjoyed since 1886. Whether you want a 150ml mini can or a large 1.5 liter bottle for sharing, you can find Coca-Cola Classic in a variety of sizes to suit every lifestyle and occasion.",15000,coke.jpeg,V1
-P2,Pho,Food,,35000,pho.jpeg,V2
-P3,Hoodie,Clothes,,250000,hoodie.jpeg,V3
+P2,"Pho 1",Food,"AUTHENTIC FLAVOR: Our recipe is authentically designed to give you the best taste possible!",35000,pho.jpeg,V2
+P3,"Hoodie 1",Clothes,"Exceptionally soft cotton/polyester blend resists shrinking and pilling. Fabric: 50% Cotton/50% polyester; oxford: 90% cotton/10% polyester.",250000,hoodie.jpeg,V3
+P1,"Coca",Drink,"Coca-Cola is the world’s favorite soft drink and has been enjoyed since 1886. Whether you want a 150ml mini can or a large 1.5 liter bottle for sharing, you can find Coca-Cola Classic in a variety of sizes to suit every lifestyle and occasion.",15000,coke.jpeg,V1
+P2,"Pho 2",Food,"AUTHENTIC FLAVOR: Our recipe is authentically designed to give you the best taste possible!",35000,pho.jpeg,V2
+P3,"Hoodie 2",Clothes,"Exceptionally soft cotton/polyester blend resists shrinking and pilling. Fabric: 50% Cotton/50% polyester; oxford: 90% cotton/10% polyester.",250000,hoodie.jpeg,V3
+P1,"Cola",Drink,"Coca-Cola is the world’s favorite soft drink and has been enjoyed since 1886. Whether you want a 150ml mini can or a large 1.5 liter bottle for sharing, you can find Coca-Cola Classic in a variety of sizes to suit every lifestyle and occasion.",15000,coke.jpeg,V1
+P2,"Pho 3",Food,"AUTHENTIC FLAVOR: Our recipe is authentically designed to give you the best taste possible!",35000,pho.jpeg,V2
+P3,"Hoodie 3",Clothes,"Exceptionally soft cotton/polyester blend resists shrinking and pilling. Fabric: 50% Cotton/50% polyester; oxford: 90% cotton/10% polyester.",250000,hoodie.jpeg,V3

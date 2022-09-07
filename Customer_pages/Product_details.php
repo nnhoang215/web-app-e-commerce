@@ -14,10 +14,12 @@
                         <a href="../index.html"><img src="/img/shopee_logo.png" alt="logo"></a>
                         <p>Shoppepepepepepe</p>
                     </div>
+                    <form method="get" action="Customer_home_page.php">
                     <div class="search-bar">
-                        <input type="text" placeholder="  Search..." id="search-text">
-                        <button type="submit" id="search"><i class="fa fa-search"></i></button>
+                        <input type="text" name="name" placeholder="  Search..." id="search-text">
+                        <button type="submit" name="act" id="search"><i class="fa fa-search"></i></button>
                     </div>
+                    </form>
                     <div class="nav">
                         <ul>
                             <li><a href="#">My Account</a></li>
@@ -27,20 +29,35 @@
                 </div>
             </nav>
         </header>
+        <?php
+        
+        // $productID = $_GET['productID'];
+        $strenc2= $_GET['data'];
+        $arr = unserialize(urldecode($strenc2));
+
+        echo '
         <section class="product-details-page">
                <div class="page-path">
                 <p>
-                    <a href="#">Home page</a>
-                    <span>/</span>
-                    <a href="#">Category name</a>
-                    <span>/</span>
-                    <a href="#">Product name</a>
+                    <a href="./Customer_home_page.php">Home page</a>
+                    <span> > </span>
+                    <a href="#">'. $arr['name'] .'</a>
                 </p>
                </div>
                <div class="product-details-container">
-                    
+                    <div class="col-product">
+                    <img src="/img/'. $arr['imagefileName'] .'" alt="">
+                    <p class="product-details-name">'. $arr['name'] .'</p>
+                    <p class="product-details-price">'. $arr['price'] .'</p>
+                    <p class="product-details-des">'. $arr['description'] .'</p>
+                    <form method="get" action="Customer_cart.php">
+                        <button onclick="SaveItem()" type="submit" name="act" > Add to cart </button>
+                    </form>
+                </div>
                </div>
         </section>
+        '
+        ?>
         <footer>
             <ul>
                 <li><a href="#">About</a></li>
@@ -51,3 +68,14 @@
         </footer>
     </body>
 </html>
+
+<script>
+function SaveItem() {
+
+var name =  "<?php Print($arr['name']); ?>";
+var price =  "<?php Print($arr['price']); ?>";
+localStorage.setItem(name, price);
+doShowAll();
+
+}
+</script>

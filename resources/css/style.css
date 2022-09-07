@@ -653,16 +653,51 @@ span {
   border-bottom: solid 1px;
 }
 
+
 /* -------------------------- */
 /* -------Product details-------- */
 
 .product-details-page .page-path {
-  margin-left: 20px;
+  margin: 50px;
 }
 
 .product-details-page .page-path span {
   font-size: 90%;
 }
+
+.product-details-container {
+  display: flex;
+  /* justify-content: space-around; */
+  margin: 50px;
+}
+.product-details-name {
+  font-size: 24px;
+}
+.product-details-price {
+  font-size: 16px;
+  color: red;
+  font-weight: bold;
+}
+
+.product-details-page button {
+  font-size: 100%;
+  margin-top: 10px;
+  border-radius: 5px;
+  width: 120px;
+  height: 40px;
+  background-color: rgb(107, 128, 244);
+  color: white;
+  padding: 5px 5px;
+}
+
+/* ---------------------------- */
+/* ----------Add to cart page------------ */
+/* ------------------------------------ */
+
+.cart-container {
+  margin: 50px;
+}
+
 /* ------------------------------ */
 /* ---------Input validation----------- */
 /* --------------------------------------- */

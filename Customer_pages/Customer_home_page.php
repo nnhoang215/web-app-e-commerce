@@ -219,43 +219,18 @@
                       }
                     
                     $data[] = $item;
-                    // if($i % 3 == 1) {echo '<div class="row-products">';}
-                    // foreach ($row as $key => $value) 
-                    //     $item[$headers[$key]] = $value ?: null;
-                    //     echo 
-                    //     '
-                    //     <div class="col-product">
-                    //         <a href="#">
-                    //             <img src="/img/'. $item['imagefileName'] .'" alt="">
-                    //         <p class="product-des">'. $item['name'] .'</p>
-                    //         <p class="price">'. $item['price'] .'</p>
-                    //         </a>
-                    //     </div>
-                    //     ';
-                    //     if($i % 3 == 0) {echo '</div>'; } 
-                    //     ++$i;
-
-                    // if (isset($_GET['min_price']) && is_numeric($_GET['min_price'])) {
-                    //     if ($item['price'] < $_GET['min_price']) {
-                    //       continue;
-                    //     }
-                    //   }
-                    //   if (isset($_GET['max_price']) && is_numeric($_GET['max_price'])) {
-                    //     if ($item['price'] > $_GET['max_price']) {
-                    //       continue;
-                    //     }
-                    //   }
-                    //   $data[] = $item;
                 }
-
                 $_SESSION['data'] = $data;
                 $i = 1;
                 foreach ($data as $item) {
                     if($i % 3 == 1) {echo '<div class="row-products">';}
+                    $str = serialize($item);
+                    $strenc = urlencode($str);
+
                     echo 
                         '
                         <div class="col-product">
-                            <a href="#">
+                            <a href="./Product_details.php?data=' . $strenc .' ">
                                 <img src="/img/'. $item['imagefileName'] .'" alt="">
                             <p class="product-des">'. $item['name'] .'</p>
                             <p class="price">'. $item['price'] .'</p>
@@ -270,7 +245,7 @@
                 fclose($file);
                 ?>
             <script>
-                console.log(<?= json_encode($data); ?>);
+                console.log(<?= json_encode($_SESSION['data']); ?>);
 
             </script>
             <!-- </div> -->
