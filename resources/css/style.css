@@ -664,11 +664,11 @@ span{
     position: relative;
 }
 
-.contain-input span[id='emailError'],
+.contain-input span[id='nameError'],
 .contain-input span[id='pNameError'],
 .contain-input span[id='pTypeError'],
 .contain-input span[id='desciptionError'],
-.contain-input span[id='tagError']{
+.contain-input span[id='priceError']{
     position: absolute ;
     right: 12px;
     bottom: 5px;

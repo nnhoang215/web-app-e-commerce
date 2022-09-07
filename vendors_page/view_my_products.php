@@ -11,7 +11,7 @@
                 <div class="nav-bar">
                     <div class="logo-name">
                         <a href="../index.html"><img src="/img/shopee_logo.png" alt="logo"></a>
-                        <p>Shoppepepepepepe</p>
+                        <p>Shoppee</p>
                     </div>
                     <div class="nav">
                         <ul>

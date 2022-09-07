@@ -202,3 +202,28 @@ function validatepProductTag(){
     tagError.innerHTML = '';
     return true;
 }
+var vendorIDError = document.getElementById("vendorIDError");
+var priceError = document.getElementById("priceError");
+
+function validateVendorID(){
+    var vendorID = document.getElementById('vendorID').value;
+    if(vendorID.length == 0 || vendorID == null){
+        vendorIDError.innerHTML = 'A vendor ID is required';
+        return false;
+    }
+    tagError.innerHTML = '';
+    return true;
+}
+
+function validatePrice(){
+    var price = document.getElementById('price').value;
+    if(price.length == 0 || price == null){
+        priceError.innerHTML = 'Product price is required';
+        return false;
+    }
+    if(price <0){
+        priceError.innerHTML = "Product's value can't be negative";
+    }
+    tagError.innerHTML = '';
+    return true;
+}

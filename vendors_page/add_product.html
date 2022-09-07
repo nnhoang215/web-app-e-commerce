@@ -12,7 +12,7 @@
                 <div class="nav-bar">
                     <div class="logo-name">
                         <a href="../index.html"><img src="/img/shopee_logo.png" alt="logo"></a>
-                        <p>Shoppepepepepepe</p>
+                        <p>Shoppee</p>
                     </div>
                     <div class="nav">
                         <ul>
@@ -37,29 +37,29 @@
                     <p>Add product details here</p>
                     <form action="#" method="#">
                         <div class="contain-input">
-                        <label for="seller-email">SELLER EMAIL <span>*</span></label> <br>
-                        <input type="email" name="seller-email" id="seller-email" onkeyup="validateSellerEmail()">
-                        <span id="emailError"></span> <br>
+                            <label for="username">VENDOR USERNAME <span>*</span></label> <br>
+                            <input type="text" name="username" id="username" onkeyup="validateName()">
+                            <span id="nameError"></span>
                         </div>
-                        <div class="contain-input">
-                        <label for="product-name">PRODUCT NAME <span>*</span></label> <br>
-                        <input type="text" name="product-name" id="product-name" onkeyup="validateProductName()">
+                            <div class="contain-input">
+                            <label for="product-name">PRODUCT NAME <span>*</span></label> <br>
+                            <input type="text" name="product-name" id="product-name" onkeyup="validateProductName()">
                         <span id="pNameError"></span> <br>
                         </div>
                         <div class="contain-input">
-                        <label for="product-type">PRODUCT TYPE <span>*</span></label> <br>
-                        <input type="text" name="product-type" id="product-type" onkeyup="validatepProductType()">
-                        <span id="pTypeError"></span> <br>
+                            <label for="price">PRODUCT PRICE <span>*</span></label> <br>
+                            <input type="number" name="price" id="price" onkeyup="validatePrice()">
+                            <span id="priceError"></span> <br>
                         </div>
                         <div class="contain-input">
-                        <label for="description">DESCRIPTION</label> <br>
-                        <textarea name="desciption" id="desciption" cols="60" rows="10" onkeyup="validatepDescription()"></textarea>
-                        <span id="desciptionError"></span> <br>
+                            <label for="product-type">PRODUCT TYPE <span>*</span></label> <br>
+                            <input type="text" name="product-type" id="product-type" onkeyup="validatepProductType()">
+                            <span id="pTypeError"></span> <br>
                         </div>
                         <div class="contain-input">
-                        <label for="product-tag">PRODUCT TAG</label> <br>
-                        <textarea name="product-tag" id="product-tag" cols="60" rows="5" onkeyup="validatepProductTag()"></textarea> 
-                        <span id="tagError"></span>
+                            <label for="description">DESCRIPTION <span>*</span></label> <br>
+                            <textarea name="desciption" id="desciption" cols="60" rows="10" onkeyup="validatepDescription()"></textarea>
+                            <span id="desciptionError"></span> <br>
                         </div>
                     </form>
                 </div>
