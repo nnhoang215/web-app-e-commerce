@@ -33,20 +33,20 @@
                     $file = "../regis_pages/Customer.csv";
                     $file_handle = fopen($file, 'r');
                     flock($file_handle, LOCK_SH);
-                    while ($line = fgets($file_handle))
-                        $records[] = explode(",", $line);
+                    while ($line = fgets($file_handle)){
+                        $records[] = explode(",", $line);}
                     if($file_handle == false){
                         die("Error opening file: ". $file);
                     }
                     flock($file_handle, LOCK_UN);
                     fclose($file_handle);
                     for($i = 1; $i < count($records); $i++){
-                        for($j = 0; $j < 12; $j++){
+                        for($j = 0; $j < 13; $j++){
                             $uName = $records[$i][0];
                             $password = $records[$i][1];
                             $role = $records[$i][10];
                             if(isset($_POST['login-btn'])){
-                                if(isset($_username) == $uName && isset($_hashed_password) == $password){
+                                if(isset($_username) == $uName && password_verify($_password, $password)){
                                     if($role == "customer"){
                                         header("Location: ../Customer_pages/Customer_home_page.html");
                                     } elseif ($role == "vendor"){
