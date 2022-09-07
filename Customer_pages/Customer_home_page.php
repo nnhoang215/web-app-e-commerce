@@ -11,7 +11,7 @@
             <nav>
                 <div class="nav-bar">
                     <div class="logo-name">
-                        <a href="#"><img src="/img/image.png" alt="logo"></a>
+                        <a href="../index.html"><img src="/img/shopee_logo.png" alt="logo"></a>
                         <p>Shoppepepepepepe</p>
                     </div>
                     <div class="search-bar">
@@ -165,6 +165,43 @@
                     <p class="price">Price</p>
                     </a>
                 </div>
+            </div>
+                </div>
+
+
+                <div class="special-deals">
+                    <h3 class="special-deals-header">All products</h1>
+                <div class="row-products">
+                
+                <?php
+                $file = fopen('../dbFiles/Product.db.csv', 'r');
+
+                // Headers
+                $headers = fgetcsv($file);
+
+                // Rows
+                $data = [];
+                while (($row = fgetcsv($file)) !== false)
+                {
+                    $item = [];
+                    foreach ($row as $key => $value)
+                        $item[$headers[$key]] = $value ?: null;
+                        echo 
+                        '
+                        <div class="col-product">
+                            <a href="#">
+                                <img src="/img/'. $item['imagefileName'] .'" alt="">
+                            <p class="product-des">'. $item['name'] .'</p>
+                            <p class="price">'. $item['price'] .'</p>
+                            </a>
+                        </div>
+                        ';
+                    $data[] = $item;
+                }
+                // Close file
+                fclose($file);
+                ?>
+                
             </div>
                 </div>
         </section>

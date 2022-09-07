@@ -13,6 +13,7 @@
                         <a href="./index.html"><img src="/img/shopee_logo.png" alt="logo"></a>
                         <p><a href="./index.html">Name</a></p>
                     </div>
+                   
                     <div class="nav">
                         <ul>
                             <li><a href="#">My Account</a></li>
@@ -22,13 +23,15 @@
                 </div>
             </nav>
         </header>
+        <section> 
+        </section>
         <footer>
             <ul>
                 <li><a href="#">About</a></li>
                 <li><a href="#">Copyright</a></li>
                 <li><a href="#">Policy</a></li>
                 <li><a href="#">Helps link</a></li>
-                <!-- <li><a href="./Customer_pages/Customer_home_page.php">Customer-homepage</a></li>  -->
+                <li><a href="./Customer_pages/Customer_home_page.php">Customer-homepage</a></li> 
                 <li><a href="./Customer_pages/Product_details.html">Product details</a></li>  
                 <li><a href="./Customer_pages/products_page.html">Product page</a></li>
                 <li><a href="./Myaccount/Myaccount.html">My Account</a></li>

@@ -651,3 +651,31 @@ span{
 .product-details-page .page-path span{
     font-size: 90%;
 }
+/* ------------------------------ */
+/* ---------Input validation----------- */
+/* --------------------------------------- */
+.container .row span{
+    display: inline-block;
+    position: relative;
+    font-size: 12px;
+    color: red;
+}
+.contain-input{
+    position: relative;
+}
+
+.contain-input span[id='emailError'],
+.contain-input span[id='pNameError'],
+.contain-input span[id='pTypeError'],
+.contain-input span[id='desciptionError'],
+.contain-input span[id='tagError']{
+    position: absolute ;
+    right: 12px;
+    bottom: 5px;
+    font-size: 14px;
+    color: red;
+}
+.product-form-img-container input,
+.product-form-img-container textarea{
+    width:100%;
+}

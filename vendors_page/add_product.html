@@ -4,13 +4,14 @@
     <head>
         <title>Shoppee web</title>
         <link rel="stylesheet" href="../resources/css/style.css">
+        <script defer src="/resources/js/regis.js"></script>
     </head>
     <body>
         <header>
             <nav>
                 <div class="nav-bar">
                     <div class="logo-name">
-                        <a href="#"><img src="/img/image.png" alt="logo"></a>
+                        <a href="../index.html"><img src="/img/shopee_logo.png" alt="logo"></a>
                         <p>Shoppepepepepepe</p>
                     </div>
                     <div class="nav">
@@ -35,16 +36,31 @@
                     <h3>PRODUCT DETAILS</h3>
                     <p>Add product details here</p>
                     <form action="#" method="#">
+                        <div class="contain-input">
                         <label for="seller-email">SELLER EMAIL <span>*</span></label> <br>
-                        <input type="email" name="seller-email" id="seller-email"> <br>
+                        <input type="email" name="seller-email" id="seller-email" onkeyup="validateSellerEmail()">
+                        <span id="emailError"></span> <br>
+                        </div>
+                        <div class="contain-input">
                         <label for="product-name">PRODUCT NAME <span>*</span></label> <br>
-                        <input type="text" name="product-name" id="product-name"> <br>
+                        <input type="text" name="product-name" id="product-name" onkeyup="validateProductName()">
+                        <span id="pNameError"></span> <br>
+                        </div>
+                        <div class="contain-input">
                         <label for="product-type">PRODUCT TYPE <span>*</span></label> <br>
-                        <input type="text" name="product-type" id="product-type"><br>
-                        <label for="discription">DISCRIPTION</label> <br>
-                        <textarea name="disciption" id="disciption" cols="60" rows="10"></textarea> <br>
+                        <input type="text" name="product-type" id="product-type" onkeyup="validatepProductType()">
+                        <span id="pTypeError"></span> <br>
+                        </div>
+                        <div class="contain-input">
+                        <label for="description">DISCRIPTION</label> <br>
+                        <textarea name="desciption" id="desciption" cols="60" rows="10" onkeyup="validatepDescription()"></textarea>
+                        <span id="desciptionError"></span> <br>
+                        </div>
+                        <div class="contain-input">
                         <label for="product-tag">PRODUCT TAG</label> <br>
-                        <textarea name="product-tag" id="product-tag" cols="60" rows="5"></textarea>
+                        <textarea name="product-tag" id="product-tag" cols="60" rows="5" onkeyup="validatepProductTag()"></textarea> 
+                        <span id="tagError"></span>
+                        </div>
                     </form>
                 </div>
                 <div class="product-img-input">
