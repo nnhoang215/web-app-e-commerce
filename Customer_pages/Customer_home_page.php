@@ -8,16 +8,19 @@
     </head>
     <body>
         <header>
+    
             <nav>
                 <div class="nav-bar">
                     <div class="logo-name">
                         <a href="../index.html"><img src="/img/shopee_logo.png" alt="logo"></a>
                         <p>Shoppepepepepepe</p>
                     </div>
+                    <form method="get" action="Customer_home_page.php">
                     <div class="search-bar">
-                        <input type="text" placeholder="  Search..." id="search-text">
-                        <button type="submit" id="search"><i class="fa fa-search"></i></button>
+                        <input type="text" name="name" placeholder="  Search..." id="search-text">
+                        <button type="submit" name="act" id="search"><i class="fa fa-search"></i></button>
                     </div>
+                    </form>
                     <div class="nav">
                         <ul>
                             <li><a href="#">My Account</a></li>
@@ -28,7 +31,7 @@
             </nav>
         </header>
         <section class="customer-home-pages">
-                <div class="category-container">
+                <!-- <div class="category-container">
                     <h2>Categories</h2>
                     <div class="categories">
                         <div class="category">
@@ -167,43 +170,87 @@
                 </div>
             </div>
                 </div>
+ -->    
+            <form method="get" action="Customer_home_page.php">
+                <div class="price-range-filter">
+                    <h2>Price filter</h2>
+                    <div class="price-range-filter-inputs">
+                        <input type="number" name="min_price" maxlength="13" id="min_price" placeholder="MIN">
+                        <div class="filter-range-line"></div>
+                        <input type="number" name="max_price" maxlength="13" id="max_price" placeholder="MAX">
+                        <button  type="submit" name="act" value="Filter" class="apply-button">APPLY</button>
+                    </div>
+               </form>
 
-
-                <div class="special-deals">
+                <div class="special-deals" id="here">
                     <h3 class="special-deals-header">All products</h1>
-                <div class="row-products">
+                <!-- <div class="row-products"> -->
                 
                 <?php
+                
                 $file = fopen('../dbFiles/Product.db.csv', 'r');
 
                 // Headers
                 $headers = fgetcsv($file);
 
                 // Rows
+                // $_SESSION['data'] = $data;
                 $data = [];
                 while (($row = fgetcsv($file)) !== false)
                 {
                     $item = [];
-                    foreach ($row as $key => $value)
-                        $item[$headers[$key]] = $value ?: null;
-                        echo 
+                    foreach ($row as $key => $value) 
+                         $item[$headers[$key]] = $value ?: null;
+                    
+                    if (isset($_GET['min_price']) && is_numeric($_GET['min_price'])) {
+                    if ($item['price'] < $_GET['min_price']) {
+                        continue;
+                    }
+                    }
+                    if (isset($_GET['max_price']) && is_numeric($_GET['max_price'])) {
+                    if ($item['price'] > $_GET['max_price']) {
+                        continue;
+                    }
+                    }
+                    if (isset($_GET['name']) && !empty($_GET['name'])) {
+                        if (strpos($item['name'], $_GET['name']) === false) {
+                          continue;
+                        }
+                      }
+                    
+                    $data[] = $item;
+                }
+                $_SESSION['data'] = $data;
+                $i = 1;
+                foreach ($data as $item) {
+                    if($i % 3 == 1) {echo '<div class="row-products">';}
+                    $str = serialize($item);
+                    $strenc = urlencode($str);
+
+                    echo 
                         '
                         <div class="col-product">
-                            <a href="#">
+                            <a href="./Product_details.php?data=' . $strenc .' ">
                                 <img src="/img/'. $item['imagefileName'] .'" alt="">
                             <p class="product-des">'. $item['name'] .'</p>
                             <p class="price">'. $item['price'] .'</p>
                             </a>
                         </div>
                         ';
-                    $data[] = $item;
+                        if($i % 3 == 0) {echo '</div>'; } 
+                        ++$i;
                 }
+                
                 // Close file
                 fclose($file);
                 ?>
-                
-            </div>
+            <script>
+                console.log(<?= json_encode($_SESSION['data']); ?>);
+
+            </script>
+            <!-- </div> -->
                 </div>
+
         </section>
             
         </section>
