@@ -4,6 +4,7 @@
     <head>
         <title>Shoppee web</title>
         <link rel="stylesheet" href="../resources/css/style.css">
+        <link rel="stylesheet" href="../resources/css/queries.css">
     </head>
     <body>
         <header>
@@ -151,10 +152,10 @@
         </section>
         <footer>
             <ul>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Copyright</a></li>
-                <li><a href="#">Policy</a></li>
-                <li><a href="#">Helps link</a></li>   
+                <li><a href="../sub-pages/About.html">About</a></li>
+                <li><a href="../sub-pages/Copyright.html">Copyright</a></li>
+                <li><a href="../sub-pages/Policy.html">Policy</a></li>
+                <li><a href="../sub-pages/Helpslink.html">Helps link</a></li>   
             </ul>
         </footer>
     </body>
