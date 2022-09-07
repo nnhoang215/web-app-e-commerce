@@ -44,7 +44,7 @@
                         for($j = 0; $j < 13; $j++){
                             $uName = $records[$i][0];
                             $password = $records[$i][1];
-                            $role = $records[$i][10];
+                            $role = $records[$i][11];
                             if(isset($_POST['login-btn'])){
                                 if(isset($_username) == $uName && password_verify($_password, $password)){
                                     if($role == "customer"){
