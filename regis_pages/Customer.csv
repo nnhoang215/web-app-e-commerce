@@ -1,6 +1,7 @@
 username,password,firstname,lastname,email,gender,DOB,address,business-name,business-address,age,role,distribution-hub,URL
-baochi345,$2y$10$zDFDdAYKcg6ns75krC3dP.ogvn5zXqodpOJ6Jq0hfzoFnwtwNNwpe,thanh,nguyen,lotumo123@gmail.com,Woman,2002-01-11,58quanthanh,null,null,customer,null
-lotumo123,$2y$10$g1K2wRio6Sbzskw6JQwmRuNY.6EBG0jzc5hmjb1M1Q9bnqnr2jb36,thanh,nguyen,lotumo123@gmail.com,Man,2002-01-11,49pdc,null,null,customer,null
-lotumo123,$2y$10$7tA3U.rrRCv/7oH4HvUZj.Y.e0cKVrgrdwjo.2EvoE3CFbyJA0XhK,,,,Man,,,null,null,customer,null
-bao123,$2y$10$GhwarO5kvqtoneu.gfbuPuVyhgjumFvrl25Yh3GzkvfVJDujTu8Ii,bao,nguyen,bao123@gmail.com,Man,2002-01-11,aascascac,null,null,null,customer,../img/Screen Shot 2022-08-24 at 12.15.39 PM.png
-hoang,$2y$10$kaQ6rj0UktFCaV572qvleui/vXmQu8puL0tzBF/gai7aOeqokjqe2,hoang,nguyen,hoang123@gmail.com,Man,2002-02-09,100abc,null,null,null,customer,../img/Screen Shot 2022-08-01 at 11.02.01 PM.png
+hoang321,$2y$10$6prIQSxedcAzVupj.QEbY.wxJbGBNMAh4mrW0p8Bi760C2PGOmLJu,null,null,null,null,null,null,fadsf,asdfadsf,null,vendor,null,../img/Screen Shot 2022-09-04 at 18.17.05 (2).png
+hoang432,$2y$10$uM.p20G7jHn8VRhqg9sSbOqee616vWIgTZ0XAxthczoCnwHHwIurK,null,null,null,null,null,null,asdfadsf,asdfasdf,null,vendor,null,../img/Screen Shot 2022-08-02 at 15.01.51 (2).png
+hoang213,$2y$10$lfL0YcTJ9S8EWeNXgXfKFeIyXGh82hUMjMyiAdzorw.V8a92E2FgC,nnnn,adfasdfadsf,asdfadf@gmail.com,Man,2021-10-12,asdfasdfasdfasdf,null,null,null,customer,null,../img/Screen Shot 2022-09-04 at 18.17.05 (2).png
+hoang211,$2y$10$SQpvcqQ6hdGG66EavlhfkeAEM5T5X09iLe0uOyx3M66iwq72o5oFG,hoang,nguyen,nnh@gmail.com,Man,2021-10-12,adfasdf,null,null,null,customer,null,../img/Screen Shot 2022-09-04 at 18.17.05 (2).png
+alo123,$2y$10$jWew4YnFJJiLd.vRUk4anOxbqzPm2ar/wrl4XxdYn3kgpwR4Ldi.G,adsfadf,asdfasdf,asdasdfa@gmail.com,Man,2022-09-12,adfasdfasdf,null,null,null,customer,null,../img/Screen Shot 2022-08-01 at 14.36.23.png
+aaa123,$2y$10$bq28dU5I8ws4aAJ4D4G6X.kd9YDbWKDPbjM15nKnbuckPHgfjMYnS,asd,adsfadf,adsfasdfadsfsa@gmail.com,,2022-09-05,asdfadsf,null,null,null,customer,null,../img/Screen Shot 2022-04-26 at 23.28.04.png
