@@ -16,6 +16,7 @@
             <?php
                 if (isset($_POST['log_out'])){
                     unset($_SESSION["current_user"]);
+                    session_destroy();
                     header("Location: ../Login/login.php");
                 }
             ?>
