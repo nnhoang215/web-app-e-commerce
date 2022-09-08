@@ -33,84 +33,44 @@
                 </div>
             </div>
             <div class="container-products">
-                <div class="row-product">
+            <?php 
+                $file = fopen('../dbFiles/Product.csv', 'r');
+                $data = fgetcsv($file, 1000, ',');
+                $all_record_arr = [];
+
+                while(( $data = fgetcsv($file, 1000, ','))!== false){
+                    echo "<pre>";
+                    $all_record_arr = $data;
+                    print_r($all_record_arr);
+                }
+                fclose($file);
+
+            ?>
+                <!-- <div class="row-product">
                     <div class="col-product">
                         <a href="#">
                             <img src="" alt="product1">
                             <p>product name</p>
                         </a>
-                    </div>
-                    <div class="col-product">
-                        <a href="#">
-                            <img src="" alt="product1">
-                            <p>product name</p>
-                        </a>
-                    </div>
-                    <div class="col-product">
-                        <a href="#">
-                            <img src="" alt="product1">
-                            <p>product name</p>
-                        </a>
-                    </div>
-                    <div class="col-product">
-                        <a href="#">
-                            <img src="" alt="product1">
-                            <p>product name</p>
-                        </a>
-                    </div>
-                </div>
-                <div class="row-product">
-                    <div class="col-product">
-                        <a href="#">
-                            <img src="" alt="product1">
-                            <p>product name</p>
-                        </a>
-                    </div>
-                    <div class="col-product">
-                        <a href="#">
-                            <img src="" alt="product1">
-                            <p>product name</p>
-                        </a>
-                    </div>
-                    <div class="col-product">
-                        <a href="#">
-                            <img src="" alt="product1">
-                            <p>product name</p>
-                        </a>
-                    </div>
-                    <div class="col-product">
-                        <a href="#">
-                            <img src="" alt="product1">
-                            <p>product name</p>
-                        </a>
-                    </div>
-                </div>
-                <div class="row-product">
-                    <div class="col-product">
-                        <a href="#">
-                            <img src="" alt="product1">
-                            <p>product name</p>
-                        </a>
-                    </div>
-                    <div class="col-product">
-                        <a href="#">
-                            <img src="" alt="product1">
-                            <p>product name</p>
-                        </a>
-                    </div>
-                    <div class="col-product">
-                        <a href="#">
-                            <img src="" alt="product1">
-                            <p>product name</p>
-                        </a>
-                    </div>
-                    <div class="col-product">
-                        <a href="#">
-                            <img src="" alt="product1">
-                            <p>product name</p>
-                        </a>
-                    </div>
-                </div>
+                </div> -->
+                <table border="1">
+                    <thead>
+                        <th>productID</th><th>name</th><th>type</th><th>description</th><th>price</th><th>sellerUsername</th>
+                    </thead>
+                    <tbody>
+                        <?php foreach($all_record_arr as $rec) {?>
+                            <tr>
+                                <td><?=$rec[0]?></td>
+                                <td><?=$rec[1]?></td>
+                                <!-- <td><?=$rec[2]?></td>
+                                <td><?=$rec[3]?></td>
+                                <td><?=$rec[4]?></td>
+                                <td><?=$rec[6]?></td> -->
+                            </tr>
+                        <?php } ?>
+                    </tbody>
+                </table>
+
                 <div class="btn" id="view-more">
                     <a href="">View more</a>
                 </div>

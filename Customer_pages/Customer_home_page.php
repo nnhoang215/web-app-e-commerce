@@ -199,9 +199,8 @@ session_start();
                 <!-- <div class="row-products"> -->
                 
                 <?php
-                echo $_SESSION["current_user"]["username"];
-
-                $file = fopen('../dbFiles/Product.db.csv', 'r');
+                
+                $file = fopen('../dbFiles/Product.csv', 'r');
 
                 // Headers
                 $headers = fgetcsv($file);

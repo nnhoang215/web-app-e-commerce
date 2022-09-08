@@ -47,8 +47,8 @@
                         <span id="pNameError"></span> <br>
                         </div>
                         <div class="contain-input">
-                            <label for="price">PRODUCT PRICE <span>*</span></label> <br>
-                            <input type="number" name="price" id="price" onkeyup="validatePrice()">
+                            <label for="price">PRODUCT PRICE (VND) <span>*</span></label> <br>
+                            <input type="text" name="price" id="price" onkeyup="validatePrice()">
                             <span id="priceError"></span> <br>
                         </div>
                         <div class="contain-input">
@@ -64,11 +64,9 @@
                     </form>
                 </div>
                 <div class="product-img-input">
-                    <div class="chosen-file">
-                        <img src="#" alt="chosen file">
+                    <div class="chosen-file" id="imgBox">
                         <p>No file chosen</p>
                     </div>
-                    <button class="choose-image">Choose image</button>
                     <h4>Note:</h4>
                     <p>Image can be uploaded of any dimension but we reccomend you to 
                         upload image with dimension of 1024x1024 & its size must be less than 15MB.

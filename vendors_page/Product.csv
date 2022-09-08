@@ -1,4 +1,4 @@
-productID,name,type,description,price,imagefileName,vendorID
-P1,"Coca Cola",Drink,"Coca-Cola is the world’s favorite soft drink and has been enjoyed since 1886. Whether you want a 150ml mini can or a large 1.5 liter bottle for sharing, you can find Coca-Cola Classic in a variety of sizes to suit every lifestyle and occasion.",15000,coke.jpeg,V1
-P2,Pho,Food,,35000,pho.jpeg,V2
-P3,Hoodie,Clothes,,250000,hoodie.jpeg,V3
+productID,name,type,description,price,imagefileName,sellerUsername
+P1,"Coca Cola",Drink,"Coca-Cola is the world’s favorite soft drink and has been enjoyed since 1886. Whether you want a 150ml mini can or a large 1.5 liter bottle for sharing, you can find Coca-Cola Classic in a variety of sizes to suit every lifestyle and occasion.",15000,coke.jpeg,lotumo123
+P2,Pho,Food,,35000,pho.jpeg,lotumo123
+P3,Hoodie,Clothes,,250000,hoodie.jpeg,lotumo123

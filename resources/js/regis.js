@@ -221,9 +221,14 @@ function validatePrice(){
         priceError.innerHTML = 'Product price is required';
         return false;
     }
+    if (!price.match(/[0-9]/)){
+        priceError.innerHTML = 'Invalid price input';
+        return false;
+    }
     if(price <0){
         priceError.innerHTML = "Product's value can't be negative";
+        return false;
     }
-    tagError.innerHTML = '';
+    priceError.innerHTML = '';
     return true;
 }
