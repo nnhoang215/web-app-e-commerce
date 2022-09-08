@@ -1,26 +1,17 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 
 <html>
     <head>
         <title>Shoppee web</title>
         <link rel="stylesheet" href="../resources/css/style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <body>
         <header>
-            <nav>
-                <div class="nav-bar">
-                    <div class="logo-name">
-                        <a href="../index.html"><img src="/img/shopee_logo.png" alt="logo"></a>
-                        <p>Shoppee</p>
-                    </div>
-                    <div class="nav">
-                        <ul>
-                            <li><a href="#">My Account</a></li>
-                            <li><a href="#">Log in</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
+            <?php require '../php_scripts/general_header.php'?>
         </header>
         <section class="view-my-products">
             <div class="header-addmore">
@@ -35,17 +26,52 @@
             <div class="container-products">
             <?php 
                 $file = fopen('../dbFiles/Product.csv', 'r');
-                $data = fgetcsv($file, 1000, ',');
-                $all_record_arr = [];
-
-                while(( $data = fgetcsv($file, 1000, ','))!== false){
-                    echo "<pre>";
-                    $all_record_arr = $data;
-                    print_r($all_record_arr);
+                $headers = fgetcsv($file, 1000, ',');
+                
+                
+                while(( $row = fgetcsv($file))!== false){
+                    $item = [];
+                    foreach ($row as $key => $value) 
+                         $item[$headers[$key]] = $value ?: null;
+            
+                    $data[] = $item;
+                    
                 }
+                $_SESSION['data'] = $data;
+                $i = 1;
+                foreach ($data as $item) {
+                    if($i % 3 == 1) {echo '<div class="row-products">';}
+                    $str = serialize($item);
+                    $strenc = urlencode($str);
+                    
+                    if(isset($_SESSION['current_user'])){
+                    
+                        if($item["vendorUsername"]==$_SESSION['current_user']['username']){
+                            echo 
+                                '
+                                <div class="col-product">
+                                    <a href="./Product_details.php?data=' . $strenc .' ">
+                                        <img src="/img/'. $item['imagefileName'] .'" alt="">
+                                    <p class="product-des">'. $item['name'] .'</p>
+                                    <p class="price">'. $item['price'] .'</p>
+                                    <p class="vendorUsername">'.$item['vendorUsername'].'</p>
+                                    </a>
+                                </div>
+                                ';
+                                if($i % 3 == 0) {echo '</div>'; } 
+                                ++$i;
+                            }
+                    }
+                    
+                }
+                // Close file
                 fclose($file);
 
             ?>
+            <script>
+            console.log(<?= json_encode($_SESSION['data']); ?>);
+
+            </script>
                 <!-- <div class="row-product">
                     <div class="col-product">
                         <a href="#">
@@ -53,23 +79,6 @@
                             <p>product name</p>
                         </a>
                 </div> -->
-                <table border="1">
-                    <thead>
-                        <th>productID</th><th>name</th><th>type</th><th>description</th><th>price</th><th>sellerUsername</th>
-                    </thead>
-                    <tbody>
-                        <?php foreach($all_record_arr as $rec) {?>
-                            <tr>
-                                <td><?=$rec[0]?></td>
-                                <td><?=$rec[1]?></td>
-                                <!-- <td><?=$rec[2]?></td>
-                                <td><?=$rec[3]?></td>
-                                <td><?=$rec[4]?></td>
-                                <td><?=$rec[6]?></td> -->
-                            </tr>
-                        <?php } ?>
-                    </tbody>
-                </table>
 
                 <div class="btn" id="view-more">
                     <a href="">View more</a>

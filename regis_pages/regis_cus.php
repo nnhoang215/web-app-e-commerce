@@ -3,6 +3,7 @@
 <html>
     <head>
         <title>Shoppee web</title>
+        <script defer src="/resources/js/regis.js"></script>
         <link rel="stylesheet" href="../resources/css/style.css">
         <link rel="stylesheet" href="../resources/css/queries.css">
 
@@ -167,6 +168,7 @@
                         <div class="col">
                             <label for="username">User name</label>
                             <input type="text" name="username" id="username">
+                            <span id="nameError"></span>
 
                         </div>
                         <div class="col">
