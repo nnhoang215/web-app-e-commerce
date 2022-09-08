@@ -53,6 +53,7 @@
                     <form method="get" action="Customer_cart.php">
                         <button onclick="SaveItem()" type="submit" name="act" > Add to cart </button>
                     </form>
+                    
                 </div>
                </div>
         </section>

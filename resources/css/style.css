@@ -653,7 +653,6 @@ span {
   border-bottom: solid 1px;
 }
 
-
 /* -------------------------- */
 /* -------Product details-------- */
 
@@ -697,6 +696,24 @@ span {
 .cart-container {
   margin: 50px;
 }
+.table_title {
+  font-weight: bold;
+}
+.cart-container th,
+td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.cart-container th {
+  background-color: rgb(107, 128, 244);
+  color: white;
+}
+
+.clear-button {
+  padding: 8px 10px;
+}
 
 /* ------------------------------ */
 /* ---------Input validation----------- */
@@ -730,7 +747,7 @@ span {
 /* ------------------------------- */
 /* ------Shippper----------------- */
 /* ------------------------------- */
-.shipper-main-page h1{
+.shipper-main-page h1 {
   margin-left: 20px;
   margin-top: 20px;
   margin-bottom: 20px;
@@ -739,46 +756,46 @@ span {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-.order-container a, .order-container-field{
+.order-container a,
+.order-container-field {
   display: flex;
   justify-content: space-around;
   align-items: center;
   border: solid black 1px;
   padding-right: 5px;
-  padding-left:  5px;
+  padding-left: 5px;
   background-color: #fff;
   max-width: 800px;
-  margin:0 auto;
+  margin: 0 auto;
   margin-bottom: 20px;
 }
 
 .order-conatiner a:hover,
-.order-container a:active{
+.order-container a:active {
   background-color: #515050;
 }
 
-.order-container a{
+.order-container a {
   text-decoration: none;
 }
-
 
 /* --------------------------------- */
 /* -------Order Detail-------------- */
 /* --------------------------------- */
 
-.order_detail .container{
-  margin:0 auto;
+.order_detail .container {
+  margin: 0 auto;
   margin-top: 20px;
   margin-bottom: 50px;
   display: flex;
   flex-direction: column;
 }
 
-.order_detail .container .row{
+.order_detail .container .row {
   display: flex;
 }
 
-.order_detail .container .row .col{
+.order_detail .container .row .col {
   flex: 1;
 }
 
