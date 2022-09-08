@@ -26,11 +26,11 @@
         <section class="regis-form">
             <?php
                 if(isset($_POST['submit'])){
-                    error_reporting(0);
+                    // error_reporting(0);
                     $records = array();
-                    $username = $_POST['username'];
+                    $userName = $_POST['username'];
                     $password = $_POST['password'];
-                    $hased_password = password_hash($password, PASSWORD_DEFAULT);
+                    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
                     $businessName = $_POST['business-name'];
                     $businessAddress = $_POST['business-address'];
                     $file = " ";
@@ -71,7 +71,7 @@
                         $businessAddressList = array();
                         for($i = 1; $i < count($records); $i++){    
                             array_push($userNameList, $records[$i][0]);
-                            array_push($businessAddressList, $records[$i][8]);   
+                            array_push($businessAddressList, $records[$i][9]);   
                         }
                         if(isInArray($userNameList, validate($userName)) == true || isInArray($businessAddressList, validate($businessAddress)) == true){
                             header("Location: regis_vendors.php");
@@ -105,9 +105,37 @@
                         // var_dump($link);
                     }
                 }
+                function validate($data){
+
+                    $data = trim($data);
+             
+                    $data = stripslashes($data);
+             
+                    $data = htmlspecialchars($data);
+             
+                    return $data;
+             
+                 }
+                function isInArray($array, $item){
+                    for($i = 0 ; $i < count($array); $i++){
+                        if($item === $array[$i]){
+                            return true;
+                        }
+                    }
+                    return false;
+                }
+
+                function usernameValidate($userName){
+                    $pattern = '/^[A-Za-z0-9]{5,31}$/';
+
+                    if(preg_match($pattern,$userName)){
+                        return true;
+                    }
+                    return false;
+                }
             ?>
             <div class="container">
-                <form action="regis_vendor.php" method="post" enctype="multipart/form-data">
+                <form action="regis_vendors.php" method="post" enctype="multipart/form-data">
                     <div class="row">
                         <div class="col">
                             <label for="username">User name</label>

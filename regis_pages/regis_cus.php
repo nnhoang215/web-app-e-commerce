@@ -54,7 +54,7 @@
                     }
 
                     $data =$userName.",".$hashed_password.",".$firstName.",".$lastName.",".$email.",".$gender.",".$DOB.",".$address
-                            .","."null".","."null".","."null".","."customer".",".$path_filename_ext."\n";
+                            .","."null".","."null".","."null".","."customer".","."null".",".$path_filename_ext."\n";
 
                     if(usernameValidate($userName)){
                         $csvFile = 'Customer.csv';

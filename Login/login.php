@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 
 <html>
@@ -24,7 +27,7 @@
         </header>
         <section class="login-form">
             <h1>Log In</h1>
-                <?php
+                <?php 
                     error_reporting(0);
                     $records = array();
                     $_username = validate($_POST['username']);
@@ -44,13 +47,30 @@
                         for($j = 0; $j < 13; $j++){
                             $uName = $records[$i][0];
                             $password = $records[$i][1];
-                            $role = $records[$i][10];
+                            $role = $records[$i][11];
                             if(isset($_POST['login-btn'])){
-                                if(isset($_username) == $uName && password_verify($_password, $password)){
+                                if(isset($_username) == $uName && password_verify($_password, $password)){                                   
+                                    $currentUser = array(
+                                        "username" => $records[$i][0],
+                                        "firstname" => $records[$i][2],
+                                        "lastname" => $records[$i][3],
+                                        "email" => $records[$i][4],
+                                        "gender" => $records[$i][5],
+                                        "DOB" => $records[$i][6],
+                                        "address" => $records[$i][7],
+                                        "business-name" => $records[$i][8],
+                                        "business-address" => $records[$i][9],
+                                        "age" => $records[$i][10],
+                                        "role" => $records[$i][11],
+                                        "distributionHub" => $records[$i][12],
+                                        "imageURL" => $records[$i][13]                            
+                                    );
+                                    $_SESSION["current_user"] = $currentUser;
+
                                     if($role == "customer"){
-                                        header("Location: ../Customer_pages/Customer_home_page.html");
+                                        header("Location: ../Customer_pages/Customer_home_page.php");
                                     } elseif ($role == "vendor"){
-                                        header("Location: ../vendors_page/view_my_products.html");
+                                        header("Location: ../vendors_page/view_my_products.php");
                                     } elseif ($role == "shipper"){
                                         header("Location: #");
                                     }
