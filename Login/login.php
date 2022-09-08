@@ -10,20 +10,7 @@
     </head>
     <body>
         <header>
-            <nav>
-                <div class="nav-bar">
-                    <div class="logo-name">
-                        <a href="#"><img src="" alt="logo"></a>
-                        <p>Name</p>
-                    </div>
-                    <div class="nav">
-                        <ul>
-                            <li><a href="#">My Account</a></li>
-                            <li><a href="#">Log in</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
+            <?php require '../php_scripts/general_header.php'?>
         </header>
         <section class="login-form">
             <h1>Log In</h1>
@@ -99,7 +86,7 @@
                  
                         return $data;
                  
-                     }
+                    }
 
                 ?>
                 <div class="container">
@@ -114,12 +101,15 @@
                        </div>
                        <form action="login.php" method="post">
                        <div class="col">
-                            <button class="btn" name="login-btn">
+                            <button class="btn" name="login-btn" value="true">
                                 <a href="#">Log in</a>
                             </button>
                        </div>
                        </form>
                     </form>
+                </div>
+                <div class="registration-prompt">
+                    Don't have an account? <a href='../regis_pages/regis_role.php'>Create</a> one!
                 </div>
         </section>
         <footer>

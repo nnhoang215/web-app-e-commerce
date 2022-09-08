@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+ 
 <!DOCTYPE html>
 
 <html>
@@ -23,8 +27,16 @@
                     </form>
                     <div class="nav">
                         <ul>
-                            <li><a href="#">My Account</a></li>
-                            <li><a href="#">Log in</a></li>
+                            <?php 
+                                $_redirectLink = isset($_SESSION["current_user"]) ? "../Myaccount/Myaccount.php" : "../Login/login.php";
+                                echo '<li><a href="'.$_redirectLink.'">My Account</a></li>';
+                            ?>
+                            <?php 
+                                $_login = isset($_SESSION["current_user"]) 
+                                    ? "Welcome, ".$_SESSION['current_user']['firstname'] 
+                                    : "<li><a href=".$_redirectLink.">Log in</a></li>";
+                                echo ''.$_login.'';
+                            ?>
                         </ul>
                     </div>
                 </div>
@@ -187,7 +199,8 @@
                 <!-- <div class="row-products"> -->
                 
                 <?php
-                
+                echo $_SESSION["current_user"]["username"];
+
                 $file = fopen('../dbFiles/Product.db.csv', 'r');
 
                 // Headers
