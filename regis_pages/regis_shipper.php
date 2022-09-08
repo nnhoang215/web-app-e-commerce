@@ -5,29 +5,15 @@
         <title>Shoppee web</title>
         <link rel="stylesheet" href="../resources/css/style.css">
         <link rel="stylesheet" href="../resources/css/queries.css">
-
     </head>
     <body>
         <header>
-            <nav>
-                <div class="nav-bar">
-                    <div class="logo-name">
-                        <a href="#"><img src="" alt="logo"></a>
-                        <p>Name</p>
-                    </div>
-                    <div class="nav">
-                        <ul>
-                            <li><a href="#">My Account</a></li>
-                            <li><a href="#">Log in</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
+            <?php require '../php_scripts/general_header.php'?>
         </header>
         <section class="regis-form">
             <?php
                 if(isset($_POST['submit'])){
-                    $username = $_POST['username'];
+                    $userName = $_POST['username'];
                     $password = $_POST['password'];
                     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
                     $age = $_POST['age'];
@@ -84,27 +70,40 @@
                         }
                         flock($file_handle, LOCK_UN);
                         fclose($file_handle);
-                        ###################### Upload image #############################
-                        // $target_dir = "/Users/nguyenhuugiathanh/Desktop/Web/img";
-                        // $target_file = $target_dir . basename($_FILES["profile-image"]["name"]);
-                        // $uploadOk = 1;
-                        // $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-                        // $check = getimagesize($_FILES["profile-image"]["tmp_name"]);
-                        // if($check !== false) {
-                        //     echo "File is an image - " . $check["mime"] . ".";
-                        //     $uploadOk = 1;
-                        // } else {
-                        //     echo "File is not an image.";
-                        //     $uploadOk = 0;
-                        // }
-
-                        // echo "true";
-                        // var_dump($link);
+                        
                     }
+                }
+                function validate($data){
+
+                    $data = trim($data);
+             
+                    $data = stripslashes($data);
+             
+                    $data = htmlspecialchars($data);
+             
+                    return $data;
+             
+                 }
+                function isInArray($array, $item){
+                    for($i = 0 ; $i < count($array); $i++){
+                        if($item === $array[$i]){
+                            return true;
+                        }
+                    }
+                    return false;
+                }
+
+                function usernameValidate($userName){
+                    $pattern = '/^[A-Za-z0-9]{5,31}$/';
+
+                    if(preg_match($pattern,$userName)){
+                        return true;
+                    }
+                    return false;
                 }
             ?>
             <div class="container">
-                <form action="regis_customer.php" method="post" enctype="multipart/form-data">
+                <form action="regis_shipper.php" method="post" enctype="multipart/form-data">
                     <div class="row">
                         <div class="col">
                             <label for="username">User name</label>

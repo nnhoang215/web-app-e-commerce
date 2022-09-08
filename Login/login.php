@@ -59,7 +59,7 @@
                                     } elseif ($role == "vendor"){
                                         header("Location: ../vendors_page/view_my_products.php");
                                     } elseif ($role == "shipper"){
-                                        header("Location: #");
+                                        header("Location: ../shipper_pages/shipper_main_page.php");
                                     }
                                 } else {
                                     header("Location: login.php");

@@ -726,3 +726,66 @@ span {
 .product-form-img-container textarea {
   width: 100%;
 }
+
+/* ------------------------------- */
+/* ------Shippper----------------- */
+/* ------------------------------- */
+.shipper-main-page h1{
+  margin-left: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  background: -webkit-linear-gradient(rgb(53, 124, 238), rgb(241, 22, 186));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.order-container a, .order-container-field{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border: solid black 1px;
+  padding-right: 5px;
+  padding-left:  5px;
+  background-color: #fff;
+  max-width: 800px;
+  margin:0 auto;
+  margin-bottom: 20px;
+}
+
+.order-conatiner a:hover,
+.order-container a:active{
+  background-color: #515050;
+}
+
+.order-container a{
+  text-decoration: none;
+}
+
+
+/* --------------------------------- */
+/* -------Order Detail-------------- */
+/* --------------------------------- */
+
+.order_detail .container{
+  margin:0 auto;
+  margin-top: 20px;
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+.order_detail .container .row{
+  display: flex;
+}
+
+.order_detail .container .row .col{
+  flex: 1;
+}
+
+.order_detail h1 {
+  margin-top: 50px;
+  text-align: center;
+  background: -webkit-linear-gradient(rgb(53, 124, 238), rgb(241, 22, 186));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
