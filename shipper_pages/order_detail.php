@@ -45,6 +45,25 @@
         <?php
             $strenc2 = $_GET['data'];
             $arr = unserialize(urldecode($strenc2));
+            $records =[];
+            $file = "../regis_pages/Customer.csv";
+            $file_handle = fopen($file, 'r');
+            flock($file_handle, LOCK_SH);
+            while($line = fgets($file_handle)){
+                $records[] = explode(",", $line);
+            }
+            if($file_handle == false){
+                die("Error opening file: ". $file);
+            }
+            flock($file_handle, LOCK_UN);
+            fclose($file_handle);
+
+            $currentBuyer = [];
+            for($i = 0; $i < count($records); $i++){
+                if($records[$i][0] == $arr[1]){
+                    $currentBuyer = $records[$i];
+                }
+            }
 
             echo 
                 '
@@ -76,11 +95,15 @@
                         </select>
                     </div>
                 </div>
+                <div class="row>
+                    <div class="col">Receiver\'s address: '.$currentBuyer[7].'</div>     
+                
                 <input type="submit" name="submit" id="submit" value="submit">
             </div>
             </form>
         </section>
           ';
+        
         ?>
         <footer>
             <ul>
