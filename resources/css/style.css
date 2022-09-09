@@ -465,6 +465,7 @@ span {
   flex: 1;
   border: solid 1px white;
   margin-left: 20px;
+  margin-bottom: 20px;
   margin-right: 20px;
   border-radius: 10px;
   box-shadow: 3px 3px 26px -4px rgba(0, 0, 0, 0.63);
@@ -486,30 +487,17 @@ span {
   width: 250px;
   height: 250px;
 }
-
+.product-img-input .profile-image{
+  margin-top: 20px;
+}
 .chosen-file p {
   margin: 80px 20px;
 }
 
-.product-img-input .choose-image {
-  margin-top: 20px;
-  width: 150px;
-  height: 50px;
-  font-size: 100%;
-  border: solid 1px white;
-  border-radius: 10px;
-  transition: all 0.3s ease-in-out;
-  cursor: pointer;
-}
 
-.product-img-input .choose-image:hover,
-.product-img-input .choose-image:active {
-  color: white;
-  background-color: rgb(49, 49, 49);
-}
+
 
 .product-img-input h4 {
-  margin-top: 20px;
   color: red;
   font-style: italic;
 }
@@ -735,7 +723,7 @@ span {
 label[class = 'text-danger']{
   color: red;
 }
-label[class = 'text-sucecss']{
+label[class = 'text-success']{
   color: rgb(0, 204, 255);
 }
 
@@ -791,7 +779,7 @@ label[class = 'text-sucecss']{
   flex: 1;
 }
 
-.order_detail  {
+.order_detail  h1{
   margin-top: 50px;
   text-align: center;
   background: -webkit-linear-gradient(rgb(53, 124, 238), rgb(241, 22, 186));
@@ -804,7 +792,7 @@ label[class = 'text-sucecss']{
 /* ------------------------- */
 
 .roles{
-  min-height: calc(68vh - 40px);
+  /* min-height: calc(68vh - 40px); */
   display: flex;
   flex-direction: column;
   align-items: center;

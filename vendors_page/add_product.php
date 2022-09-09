@@ -29,7 +29,7 @@
                     <h3>PRODUCT DETAILS</h3>
                     <?php echo "Hello Vendor: ".$_SESSION['current_user']['firstname']?>
                     <p>Add product details here</p>
-                    <form method="post">
+                    <form action="add_product.php" method="post" enctype="multipart/form-data">
                         <?php 
                         
                         function clean_text($string)
@@ -47,6 +47,7 @@
                         $product_type = '';
                         $description = '';
                         $error = '';
+                        
                         if(isset($_POST['submit']) && isset($_SESSION['current_user'])){
                             if(empty($_POST['productID'])){
                                 $error .= '<p><label class="text-danger">Please Enter your Product ID</label></p>';
@@ -91,26 +92,34 @@
 
                             if($error == ''){
 
-                                $form_data = array(
-                                        'productID' => $productID,
-                                        'name'  => $product_name,
-                                        'type'  => $product_type,
-                                        'description'  => $description,
-                                        'imagefileName' => null,
-                                        'price' => $price,
-                                        'vendorUsername' => $username
-                                        );
-                                var_dump($form_data);
-                                $data = 'productID'.$productID.','.'name'.$product_name.','.'type'.$product_type.','.'description'.$description.','
-                                .'imagefileName'.null.','.'price'.$price.','.'vendorUsername'.$username;
-
-                                $file_open = fopen('Product.csv', 'a+');
-                                print_r(fgetcsv($file_open));
-                                $filename = 'Product.csv';       
+                                // $form_data = array(
+                                //         'productID' => $productID,
+                                //         'name'  => $product_name,
+                                //         'type'  => $product_type,
+                                //         'description'  => $description,
+                                //         'imagefileName' => null,
+                                //         'price' => $price,
+                                //         'vendorUsername' => $username
+                                //         );
+                                // var_dump($form_data);
+                                $data = $productID.','.$product_name.','.$product_type.','.$description.','."null".','.$price.','.$path_filename_ext.','.$username."\n";
                                 
-                                fwrite($file_open, $data) or die('<script>console.log("Unsuccessful");</script>');
+                                $file_name = '../dbFiles/Product.csv';
+                                $file_open = fopen($file_name, 'a+');
+                                move_uploaded_file($temp_name,$path_filename_ext);
+                                
 
-                                $error = '<label class="text-success">Thank you for contacting us</label>';
+                                // print_r(fgetcsv($file_open));
+                                flock($file_open,LOCK_SH);      
+                                
+                                fwrite($file_open, $data);
+
+                                flock($file_open, LOCK_UN);
+
+                                fclose($file_open);
+                                
+
+                                $error = '<label class="text-success">Adding product successfully</label>';
                                 $productID = '';
                                 $username = '';
                                 $product_name = '';
@@ -153,13 +162,17 @@
 
                     <div class="product-img-input">
                         <div class="chosen-file" id="imgBox">
-                            <p>No file chosen</p>
+                            <img  src="#" alt="chosen file">
+                        </div>
+                        <div class="profile_image">
+                            <input type="file" name="profile_image" id="profile_image" required>
+                            
                         </div>
                         <h4>Note:</h4>
                         <p>Image can be uploaded of any dimension but we reccomend you to 
                             upload image with dimension of 1024x1024 & its size must be less than 15MB.
                         </p>
-                     </div>
+                    </div>
 
                     <div class="form-group">
                         <input type="submit" name="submit" class="btn btn-info" value="Submit" />
@@ -174,10 +187,11 @@
         <footer>
             <ul>
                 <li><a href="#">About</a></li>
-                <li><a href="/test/test.php">Copyright</a></li>
+                <li><a href="#">Copyright</a></li>
                 <li><a href="#">Policy</a></li>
                 <li><a href="#">Helps link</a></li>   
             </ul>
         </footer>
     </body>
+    <script src="../resources/js/preview_img.js"></script>
 </html>
