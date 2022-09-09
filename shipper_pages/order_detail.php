@@ -43,29 +43,33 @@
         </form>
         </section> -->
         <?php
-            $strenc2 = $_GET['data'];
-            $arr = unserialize(urldecode($strenc2));
-            $records =[];
-            $file = "../regis_pages/Customer.csv";
-            $file_handle = fopen($file, 'r');
-            flock($file_handle, LOCK_SH);
-            while($line = fgets($file_handle)){
-                $records[] = explode(",", $line);
-            }
-            if($file_handle == false){
-                die("Error opening file: ". $file);
-            }
-            flock($file_handle, LOCK_UN);
-            fclose($file_handle);
-
-            $currentBuyer = [];
-            for($i = 0; $i < count($records); $i++){
-                if($records[$i][0] == $arr[1]){
-                    $currentBuyer = $records[$i];
+        error_reporting(0);
+            if($_GET['data'] != null){
+                $strenc2 = " ";
+                $arr = [];
+                $currentBuyer = [];
+                $strenc2 = $_GET['data'];
+                $arr = unserialize(urldecode($strenc2));
+                $_SESSION['current-order'] = $arr;
+                ### Read file Customer.csv ######
+                $file = "../regis_pages/Customer.csv";
+                $file_handle = fopen($file, 'r');
+                flock($file_handle, LOCK_SH);
+                while($line = fgets($file_handle)){
+                    $records[] = explode(",", $line);
                 }
-            }
+                if($file_handle == false){
+                    die("Error opening file: ". $file);
+                }
+                flock($file_handle, LOCK_UN);
+                fclose($file_handle);
 
-            echo 
+                for($i = 0; $i < count($records); $i++){
+                    if($records[$i][0] == $arr[1]){
+                        $currentBuyer = $records[$i];
+                    }
+                }
+                echo 
                 '
                 <section class = "order_detail">
                 <h1>Order Detail</h1>
@@ -103,7 +107,37 @@
             </form>
         </section>
           ';
+            } 
+            
+
         
+        if(isset($_POST['submit'])){
+            $newArr = $_SESSION['current-order'];
+            $newStatus = $_POST['order-status'];
+            $orderList = [];
+            $fileOrder = "../dbFiles/Order.db.csv";
+            $fileOrder_handle = fopen($fileOrder, "r");
+            flock($fileOrder_handle, LOCK_SH);
+            while($line = fgets($fileOrder_handle)){
+                $orderList[] = explode(",", $line);   
+            }
+            flock($fileOrder_handle, LOCK_UN);
+            fclose($fileOrder_handle);
+            for($i = 0; $i < count($orderList); $i++){
+                if($orderList[$i][0] == $newArr[0]){
+                    $orderList[$i][4] = $newStatus;
+                }
+            }
+            $orderWrite = fopen($fileOrder, 'w');
+            flock($orderWrite, LOCK_SH);
+            foreach($orderList as $order){
+                $orderStr = implode(",", $order);
+                fwrite($orderWrite, $orderStr);
+            }
+            flock($orderWrite, LOCK_UN);
+            fclose($orderWrite);
+            header("Location: ./shipper_main_page.php");
+        }
         ?>
         <footer>
             <ul>

@@ -31,7 +31,7 @@ session_start();
                                 $_redirectLink = isset($_SESSION["current_user"]) ? "../Myaccount/Myaccount.php" : "../Login/login.php";
                                 echo '<li><a href="'.$_redirectLink.'">My Account</a></li>';
                                 $_login = isset($_SESSION["current_user"])
-                                    ? "Welcome, ".$_SESSION['current_user']['firstname'] 
+                                    ? "Welcome, ".$_SESSION['current_user']['username'] 
                                     : "<li><a href=".$_redirectLink.">Log in</a></li>";
                                 echo ''.$_login.'';
                             ?>
@@ -197,7 +197,6 @@ session_start();
                 <!-- <div class="row-products"> -->
                 
                 <?php
-                echo $_SESSION["current_user"]["username"];
 
                 $file = fopen('../dbFiles/Product.csv', 'r');
 
