@@ -32,6 +32,11 @@
                                 case "customer":
                                     echo '
                                     <div class="row">
+                                        <div class="username">
+                                            Username: <span>'.$_SESSION['current_user']['username'].'</span>
+                                        </div>
+                                    </div>
+                                    <div class="row">
                                         <div class="name">Name: <span> '.$_SESSION['current_user']['firstname'].' '.$_SESSION['current_user']['lastname'].'</span>
                                         </div> 
                                     </div>
@@ -54,30 +59,26 @@
                                 case "vendor":
                                     echo '
                                     <div class="row">
-                                        <div class="name">Name: <span> '.$_SESSION['current_user']['firstname'].' '.$_SESSION['current_user']['lastname'].'</span>
-                                        </div> 
-                                    </div>
-                                    <div class="row">
-                                        <div class="Address">Business Address: <span>'.$_SESSION['current_user']['business-address'].'</span></div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="DOB">
-                                            Date Of Birth: <span>'.$_SESSION['current_user']['DOB'].'</span>
+                                        <div class="username">
+                                            Username: <span>'.$_SESSION['current_user']['username'].'</span>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="Address">Email: <span>'.$_SESSION['current_user']['email'].'</span></div>
+                                        <div class="name">Business Name: <span> '.$_SESSION['current_user']['business-name'].'</span>
+                                        </div> 
                                     </div>
                                     <div class="row">
-                                        <div class="Address">Address: <span>'.$_SESSION['current_user']['address'].'</span></div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="gender">Gender: <span>'.$_SESSION['current_user']['gender'].'</span></div>
-                                    </div>
+                                        <div class="Business-address">Business Address: <span>'.$_SESSION['current_user']['business-address'].'</span></div>
+                                    </div>                              
                                     ';
                                     break;
                                 case "shipper":
                                     echo '
+                                    <div class="row">
+                                        <div class="username">
+                                            Username: <span>'.$_SESSION['current_user']['username'].'</span>
+                                        </div>
+                                    </div>
                                     <div class="row">
                                         <div class="name">Name: <span> '.$_SESSION['current_user']['firstname'].' '.$_SESSION['current_user']['lastname'].'</span>
                                         </div> 
