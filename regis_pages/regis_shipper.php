@@ -33,47 +33,49 @@
                             $ext = $path['extension'];
                             $temp_name = $_FILES['profile_image']['tmp_name'];
                             $path_filename_ext = $target_dir.$filename.".".$ext;
+                            $information = $userName.",".$hashed_password.",".$firstName.",".$lastName.","."null".","."null".","."null".","."null"
+                            .","."null".","."null".",".$age.","."shipper".",".$distributionHub.",".$path_filename_ext."\n";
+        
+                            if(usernameValidate($userName)){
+                                $csvFile = 'Customer.csv';
+                                $file_handle = fopen($csvFile, 'a+');
+                                flock($file_handle, LOCK_SH);
+                                
+                                $file = "Customer.csv";
+                                $_file_handle = fopen($file, 'r');
+                                flock($_file_handle, LOCK_SH);
+                                while ($line = fgets($_file_handle)){
+                                    $records[] = explode(",", $line);
+                                }
+                                if($_file_handle == false){
+                                    die("Error opening file: ". $file);
+                                }
+                                flock($_file_handle, LOCK_UN);
+                                fclose($_file_handle);
+                                $userNameList = array();
+                                for($i = 1; $i < count($records); $i++){    
+                                    array_push($userNameList, $records[$i][0]);   
+                                }
+                                if(isInArray($userNameList, validate($userName)) == true){
+                                    echo '<script>alert("Username is already registered");</script>';
+                                } else {
+                                    fwrite($file_handle, $information);
+                                    move_uploaded_file($temp_name,$path_filename_ext);
+                                    header("Location: ../Login/login.php");
+                                }
+        
+        
+                                if($file_handle == false){
+                                    die("Error opening file: ". $csvFile);
+                                }
+                                flock($file_handle, LOCK_UN);
+                                fclose($file_handle);
+                            }
+                    } else {
+                        echo '<script>alert("File size is too big or the image type is not jpeg/jpg/png");</script>';
                     }
 
-                    $information = $userName.",".$hashed_password.",".$firstName.",".$lastName.","."null".","."null".","."null".","."null"
-                    .","."null".","."null".",".$age.","."shipper".",".$distributionHub.",".$path_filename_ext."\n";
-
-                    if(usernameValidate($userName)){
-                        $csvFile = 'Customer.csv';
-                        $file_handle = fopen($csvFile, 'a+');
-                        flock($file_handle, LOCK_SH);
-                        
-                        $file = "Customer.csv";
-                        $_file_handle = fopen($file, 'r');
-                        flock($_file_handle, LOCK_SH);
-                        while ($line = fgets($_file_handle)){
-                            $records[] = explode(",", $line);
-                        }
-                        if($_file_handle == false){
-                            die("Error opening file: ". $file);
-                        }
-                        flock($_file_handle, LOCK_UN);
-                        fclose($_file_handle);
-                        $userNameList = array();
-                        for($i = 1; $i < count($records); $i++){    
-                            array_push($userNameList, $records[$i][0]);   
-                        }
-                        if(isInArray($userNameList, validate($userName)) == true){
-                            echo '<script>alert("Username is already registered");</script>';
-                        } else {
-                            fwrite($file_handle, $information);
-                            move_uploaded_file($temp_name,$path_filename_ext);
-                            header("Location: ../Login/login.php");
-                        }
-
-
-                        if($file_handle == false){
-                            die("Error opening file: ". $csvFile);
-                        }
-                        flock($file_handle, LOCK_UN);
-                        fclose($file_handle);
-                        
-                    }
+                    
                 }
                 function validate($data){
 
