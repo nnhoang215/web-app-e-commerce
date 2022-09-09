@@ -36,7 +36,7 @@
                             $password = $records[$i][1];
                             $role = $records[$i][11];
                             if(isset($_POST['login-btn'])){
-                                if(isset($_username) == $uName && password_verify($_password, $password)){                                   
+                                if($_username == $uName && password_verify($_password, $password)){                                   
                                     $currentUser = array(
                                         "username" => $records[$i][0],
                                         "firstname" => $records[$i][2],
@@ -53,23 +53,26 @@
                                         "imageURL" => $records[$i][13]                            
                                     );
                                     $_SESSION["current_user"] = $currentUser;
-
+                                    
                                     if($role == "customer"){
                                         header("Location: ../Customer_pages/Customer_home_page.php");
                                     } elseif ($role == "vendor"){
                                         header("Location: ../vendors_page/view_my_products.php");
                                     } elseif ($role == "shipper"){
                                         header("Location: ../shipper_pages/shipper_main_page.php");
+                                    } else {
+                                        print_r("Login error");
                                     }
+                                    break 2;
                                 } else {
-                                    header("Location: login.php");
+                                    echo isset($_password) ? 'Wrong password or username' : '';
                                 }
-    
+
                                 if(empty($_username)){
                                     header("Location: login.php?error = Username is required");
                                     exit();
                                 } elseif (empty($_password)){
-                                    header("Location: login.php?erro = Password is required");
+                                    header("Location: login.php?error = Password is required");
                                     exit();
                                 }
                             }
@@ -93,11 +96,11 @@
                     <form action="login.php" method="post">
                         <div class="col">
                             <label for="username">Username</label> <br>
-                            <input type="text" name="username" id="username">
+                            <input type="text" name="username" id="username" required>
                         </div>
                        <div class="col">
                             <label for="password">Password</label> <br>
-                            <input type="password" name="password" id="username">
+                            <input type="password" name="password" id="username" required>
                        </div>
                        <form action="login.php" method="post">
                        <div class="col">

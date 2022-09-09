@@ -16,25 +16,88 @@
             <?php
                 if (isset($_POST['log_out'])){
                     unset($_SESSION["current_user"]);
+                    session_destroy();
                     header("Location: ../Login/login.php");
                 }
+                echo '<h1>My Account ('.$_SESSION['current_user']['role'].')</h1>';
             ?>
-            <h1>My Account</h1>
                 <div class="container">
-                    <div class="profile-img"><img src="https://scontent.fhan2-1.fna.fbcdn.net/v/t39.30808-6/272953150_4284994721600824_7339779710394681320_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=u6uSccsI91wAX_0X_HC&_nc_ht=scontent.fhan2-1.fna&oh=00_AT_FEji993tbcNnvFzmUPYVzW89kW8fi77uSWOTBRokYbg&oe=6309D0A6" alt="profile-picture"></div>
+                    <?php 
+                        $_avatarLink = $_SESSION["current_user"]["imageURL"];
+                        echo '<div><img width="300px" src="'.$_avatarLink.'" alt="profile-picture"></div>';
+                    ?>
                     <div class="information">
-                        <div class="row">
-                            <div class="name">Name: <span>Gia Thanh Nguyen</span></div>    <!-- insert user information into span  -->
-                        </div>
-                        <div class="row">
-                            <div class="DOB">Date Of Birth: <span>01/11/2002</span></div>
-                        </div>
-                        <div class="row">
-                            <div class="Address">Address: <span>RMIT HANOI</span></div>
-                        </div>
-                        <div class="row">
-                            <div class="gender">Gender: <span>Man</span></div>
-                        </div>
+                        <?php
+                            switch ($_SESSION['current_user']['role']) {
+                                case "customer":
+                                    echo '
+                                    <div class="row">
+                                        <div class="username">
+                                            Username: <span>'.$_SESSION['current_user']['username'].'</span>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="name">Name: <span> '.$_SESSION['current_user']['firstname'].' '.$_SESSION['current_user']['lastname'].'</span>
+                                        </div> 
+                                    </div>
+                                    <div class="row">
+                                        <div class="DOB">
+                                            Date Of Birth: <span>'.$_SESSION['current_user']['DOB'].'</span>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="Address">Email: <span>'.$_SESSION['current_user']['email'].'</span></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="Address">Address: <span>'.$_SESSION['current_user']['address'].'</span></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="gender">Gender: <span>'.$_SESSION['current_user']['gender'].'</span></div>
+                                    </div>
+                                    ';
+                                    break;
+                                case "vendor":
+                                    echo '
+                                    <div class="row">
+                                        <div class="username">
+                                            Username: <span>'.$_SESSION['current_user']['username'].'</span>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="name">Business Name: <span> '.$_SESSION['current_user']['business-name'].'</span>
+                                        </div> 
+                                    </div>
+                                    <div class="row">
+                                        <div class="Business-address">Business Address: <span>'.$_SESSION['current_user']['business-address'].'</span></div>
+                                    </div>                              
+                                    ';
+                                    break;
+                                case "shipper":
+                                    echo '
+                                    <div class="row">
+                                        <div class="username">
+                                            Username: <span>'.$_SESSION['current_user']['username'].'</span>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="name">Name: <span> '.$_SESSION['current_user']['firstname'].' '.$_SESSION['current_user']['lastname'].'</span>
+                                        </div> 
+                                    </div>
+                                    <div class="row">
+                                        <div class="age">
+                                            Age: <span>'.$_SESSION['current_user']['age'].'</span>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="hub">Distribution Hub: <span>'.$_SESSION['current_user']['distributionHub'].'</span></div>
+                                    </div>
+                                    ';
+                                    break;
+                                default:
+                                    echo 'Sorry, something wrong happened, please register again';
+                                    break;
+                            }
+                        ?>
                     </div>
                 </div>
                 <div class="btn">

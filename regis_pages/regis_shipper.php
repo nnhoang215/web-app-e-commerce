@@ -15,6 +15,8 @@
                 if(isset($_POST['submit'])){
                     $userName = $_POST['username'];
                     $password = $_POST['password'];
+                    $firstName = $_POST['first-name'];
+                    $lastName = $_POST['last-name'];
                     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
                     $age = $_POST['age'];
                     $distributionHub = $_POST['distribution-hub'];
@@ -33,7 +35,7 @@
                             $path_filename_ext = $target_dir.$filename.".".$ext;
                     }
 
-                    $information = $userName.",".$hashed_password.","."null".","."null".","."null".","."null".","."null".","."null"
+                    $information = $userName.",".$hashed_password.",".$firstName.",".$lastName.","."null".","."null".","."null".","."null"
                     .","."null".","."null".",".$age.","."shipper".",".$distributionHub.",".$path_filename_ext."\n";
 
                     if(usernameValidate($userName)){
@@ -116,6 +118,16 @@
                     </div>
                     <div class="row">
                         <div class="col">
+                            <label for="first-name">First Name:</label>
+                            <input type="text" name="first-name" id="first-name" required>
+                        </div>
+                        <div class="col">
+                            <label for="last-name">Last Name: </label>
+                            <input type="text" name="last-name" id="last-name" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
                             <label for="age">Age</label>
                             <input type="text" name="age" id="age" >
                         </div>
@@ -131,7 +143,7 @@
                     <div class="row">
                         <div class="col">
                             <label for="profile_image">Profile Image</label>
-                            <input id="profile_image" type="file" name="profile_image">
+                            <input id="profile_image" type="file" accept="iamge/*" name="profile_image">
                         </div>
                     </div>
                     <div class="submit-container">
@@ -142,7 +154,6 @@
             <div class="product-img-input">
                     <div class="chosen-file">
                         <img src="#profile-image" alt="chosen file">
-                        <p>No file chosen</p>
                     </div>
                     <h4>Note:</h4>
                     <p>Image can be uploaded of any dimension but we reccomend you to 
@@ -158,5 +169,6 @@
                 <li><a href="../sub-pages/Helpslink.html">Helps link</a></li>   
             </ul>
         </footer>
+        <script src="../resources/js/preview_img.js"></script>
     </body>
 </html>

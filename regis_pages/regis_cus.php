@@ -9,20 +9,7 @@
     </head>
     <body>
         <header>
-            <nav>
-                <div class="nav-bar">
-                    <div class="logo-name">
-                        <a href="#"><img src="" alt="logo"></a>
-                        <p>Name</p>
-                    </div>
-                    <div class="nav">
-                        <ul>
-                            <li><a href="#">My Account</a></li>
-                            <li><a href="#">Log in</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
+            <?php require '../php_scripts/general_header.php'?>
         </header>
         <section class="regis-form">
             <?php
@@ -166,51 +153,51 @@
                     <div class="row">
                         <div class="col">
                             <label for="username">User name</label>
-                            <input type="text" name="username" id="username">
+                            <input type="text" name="username" id="username" required>
 
                         </div>
                         <div class="col">
                             <label for="password">New Password</label>
-                            <input type="text" name="password" id="password">
+                            <input type="text" name="password" id="password" required>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col">
                             <label for="firstname">First Name</label>
-                            <input type="text" name="firstname" id="firstname" >
+                            <input type="text" name="firstname" id="firstname" required >
                         </div>
                         <div class="col">
                             <label for="lastname">Last Name</label>
-                            <input type="text" name="lastname" id="lastname">
+                            <input type="text" name="lastname" id="lastname" required>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col">
                             <label for="email">Email</label>
-                            <input type="email" name="email" id="email">
+                            <input type="email" name="email" id="email" required>
                         </div>
                         <div class="col" id="radio">
                             <label for="gender">Gender: </label>
-                            <input type="radio" name="gender" id="man" value="Man">
-                            <label for="man">Man</label>
-                            <input type="radio" name="gender" id="woman" value ="Woman">
-                            <label for="woman">Woman</label>
+                            <input type="radio" name="gender" id="male" value="Male" required>
+                            <label for="male">Male</label>
+                            <input type="radio" name="gender" id="female" value ="Female">
+                            <label for="female">Female</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col">
                             <label for="DOB">Date Of Birth</label>
-                            <input type="date" name="DOB" id="DOB">
+                            <input type="date" name="DOB" id="DOB" required>
                         </div>
                         <div class="col">
                             <label for="address">Address</label>
-                            <input type="text" name="address" id="address">
+                            <input type="text" name="address" id="address" required>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col">
                             <label for="profile_image">Profile Image</label>
-                            <input id="profile_image" type="file" name="profile_image">
+                            <input id="profile_image" type="file" name="profile_image" accept="image/*" required>
                         </div>
                     </div>
                     <div class="submit-container">
@@ -221,7 +208,6 @@
             <div class="product-img-input">
                     <div class="chosen-file">
                         <img src="#profile-image" alt="chosen file">
-                        <p>No file chosen</p>
                     </div>
                     <h4>Note:</h4>
                     <p>Image can be uploaded of any dimension but we reccomend you to 
@@ -237,5 +223,6 @@
                 <li><a href="../sub-pages/Helpslink.html">Helps link</a></li>   
             </ul>
         </footer>
+        <script src="../resources/js/preview_img.js"></script>
     </body>
 </html>

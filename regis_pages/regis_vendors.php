@@ -8,20 +8,7 @@
     </head>
     <body>
         <header>
-            <nav>
-                <div class="nav-bar">
-                    <div class="logo-name">
-                        <a href="#"><img src="" alt="logo"></a>
-                        <p>Name</p>
-                    </div>
-                    <div class="nav">
-                        <ul>
-                            <li><a href="#">My Account</a></li>
-                            <li><a href="#">Log in</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
+            <?php require '../php_scripts/general_header.php'?>
         </header>
         <section class="regis-form">
             <?php
@@ -159,7 +146,7 @@
                     <div class="row">
                         <div class="col">
                             <label for="profile_image">Profile Image</label>
-                            <input id="profile_image" type="file" name="profile_image">
+                            <input id="profile_image" type="file" accept="image/*" name="profile_image">
                         </div>
                     </div>
                     <div class="submit-container">
@@ -170,7 +157,6 @@
             <div class="product-img-input">
                     <div class="chosen-file">
                         <img src="#profile-image" alt="chosen file">
-                        <p>No file chosen</p>
                     </div>
                     <h4>Note:</h4>
                     <p>Image can be uploaded of any dimension but we reccomend you to 
@@ -186,5 +172,6 @@
                 <li><a href="../sub-pages/Helpslink.html">Helps link</a></li>   
             </ul>
         </footer>
+        <script src="../resources/js/preview_img.js"></script>
     </body>
 </html>
