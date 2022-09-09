@@ -15,6 +15,7 @@ body {
   background-color: #e3f2fd;
 }
 
+
 /* ----------------------------- */
 /* ------------Reusable components-------------- */
 /* ----------------------------- */
@@ -47,6 +48,12 @@ body {
 .btn:hover,
 .btn:active {
   opacity: 0.4;
+}
+
+h1{
+  background: -webkit-linear-gradient(rgb(53, 124, 238), rgb(241, 22, 186));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 /* ----------------------------- */
@@ -259,9 +266,6 @@ footer ul li a:active {
 
 .login-form h1 {
   padding-bottom: 20px;
-  background: -webkit-linear-gradient(rgb(53, 124, 238), rgb(241, 22, 186));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
 .login-form .container form {
@@ -313,9 +317,6 @@ footer ul li a:active {
 
 .my-account h1 {
   margin-bottom: 20px;
-  background: -webkit-linear-gradient(rgb(53, 124, 238), rgb(241, 22, 186));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
 .my-account .container {
@@ -469,18 +470,21 @@ span {
   box-shadow: 3px 3px 26px -4px rgba(0, 0, 0, 0.63);
   padding: 20px 10px;
   background-color: white;
-  max-height: 450px;
+  max-height: 420px;
+  max-width: 350px;
 }
 
 .chosen-file {
-  display: flex;
   margin: 0 auto;
   border: solid 1px;
+  max-width: 250px;
+  max-height: 250px;
+  text-align: center;
 }
 
 .chosen-file img {
-  width: 200px;
-  height: 200px;
+  width: 250px;
+  height: 250px;
 }
 
 .chosen-file p {
@@ -736,9 +740,6 @@ span {
   margin-top: 20px;
   margin-bottom: 20px;
   text-transform: uppercase;
-  background: -webkit-linear-gradient(rgb(53, 124, 238), rgb(241, 22, 186));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 .order-container a, .order-container-field{
   display: flex;
@@ -783,10 +784,44 @@ span {
   flex: 1;
 }
 
-.order_detail h1 {
+.order_detail  {
   margin-top: 50px;
   text-align: center;
   background: -webkit-linear-gradient(rgb(53, 124, 238), rgb(241, 22, 186));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+/* ------------------------- */
+/* ------Regis Role--------- */
+/* ------------------------- */
+
+.roles{
+  min-height: calc(68vh - 40px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.roles h1{
+  margin-top: 100px;
+}
+
+.role-box{
+  border: solid 1px black;
+  border-radius: 5px;
+  background-color: white;
+  padding: 20px 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  transition: all .3s ease-in-out;
+}
+
+.role-box a{
+  text-decoration: none;
+}
+
+.role-box:hover,
+.role-box:active{
+  background-color: #bdbdbd;
 }
