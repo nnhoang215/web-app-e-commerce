@@ -30,9 +30,7 @@ session_start();
                             <?php 
                                 $_redirectLink = isset($_SESSION["current_user"]) ? "../Myaccount/Myaccount.php" : "../Login/login.php";
                                 echo '<li><a href="'.$_redirectLink.'">My Account</a></li>';
-                            ?>
-                            <?php 
-                                $_login = isset($_SESSION["current_user"]) 
+                                $_login = isset($_SESSION["current_user"])
                                     ? "Welcome, ".$_SESSION['current_user']['firstname'] 
                                     : "<li><a href=".$_redirectLink.">Log in</a></li>";
                                 echo ''.$_login.'';

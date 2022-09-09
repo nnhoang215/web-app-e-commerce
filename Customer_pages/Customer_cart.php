@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 
 <html>
@@ -11,10 +14,10 @@
     
             <nav>
                 <div class="nav-bar">
-                    <div class="logo-name">
-                        <a href="../index.html"><img src="/img/shopee_logo.png" alt="logo"></a>
-                        <p>Shoppepepepepepe</p>
-                    </div>
+                <div class="logo-name">
+                    <a href="../index.php"><img src="/img/shopee_logo.png" alt="logo"></a>
+                    <p><a href="../index.php">The world's biggest E-commerce application</a></p>
+                </div>
                     <form method="get" action="Customer_home_page.php">
                     <div class="search-bar">
                         <input type="text" name="name" placeholder="  Search..." id="search-text">
@@ -23,8 +26,7 @@
                     </form>
                     <div class="nav">
                         <ul>
-                            <li><a href="#">My Account</a></li>
-                            <li><a href="#">Log in</a></li>
+                            <?php require '../php_scripts/nav_buttons.php'?>
                         </ul>
                     </div>
                 </div>
