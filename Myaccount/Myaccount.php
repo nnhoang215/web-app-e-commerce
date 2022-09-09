@@ -43,22 +43,19 @@
                     }
                     if(isset($_POST['submit'])){
                         $file = " ";
-                        $path_filename_ext = " ";
+                        $path_filename_ext = $_SESSION["current_user"]["imageURL"];
                         $temp_name = " ";
                         if (($_FILES['profile_image']['name']!="" && $_FILES['profile_image']['size'] < 15000
-                                && ($_FILES['profile_image']['type'] == "image/jpg") || ($_FILES["profile_image"]["type"] == "image/jpeg") || ($_FILES["profile_image"]["type"] == "image/png"))){
-                    // Where the file is going to be stored
-                                $target_dir = "../img/";
-                                $file = $_FILES['profile_image']['name'];
-                                $path = pathinfo($file);
-                                $filename = $path['filename'];
-                                echo $filename;
-                                $ext = $path['extension'];
-                                $temp_name = $_FILES['profile_image']['tmp_name'];
-                                $path_filename_ext = $target_dir.$filename.".".$ext;
-                        }
-                            
-                            
+                            && ($_FILES['profile_image']['type'] == "image/jpg") || ($_FILES["profile_image"]["type"] == "image/jpeg") || ($_FILES["profile_image"]["type"] == "image/png"))){
+                            // Where the file is going to be stored
+                            $target_dir = "../img/";
+                            $file = $_FILES['profile_image']['name'];
+                            $path = pathinfo($file);
+                            $filename = $path['filename'];
+                            echo $filename;
+                            $ext = $path['extension'];
+                            $temp_name = $_FILES['profile_image']['tmp_name'];
+                            $path_filename_ext = $target_dir.$filename.".".$ext;
                             $csvFile = "../regis_pages/Customer.csv";
                             $file_handle = fopen($csvFile, "w");
                             flock($file_handle, LOCK_SH);
@@ -78,7 +75,10 @@
                             flock($file_handle, LOCK_UN);
                             fclose($file_handle);
                             header("Location: Myaccount.php");
+                        } else {
+                            echo '<script>alert("File size is too big or the image type is not jpeg/jpg/png");</script>';
                         }
+                    }
                         
                     echo '<div class = "chosen-file"><img width="300px" src="'.$_SESSION["current_user"]["imageURL"].'" alt="profile-picture"></div>';
                 ?>
