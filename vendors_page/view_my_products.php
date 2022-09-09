@@ -26,7 +26,7 @@
             <div class="container-products">
             <?php 
                 $file = fopen('../dbFiles/Product.csv', 'r');
-                $headers = fgetcsv($file, 1000, ',');
+                $headers = fgetcsv($file);
                 
                 
                 while(( $row = fgetcsv($file))!== false){
@@ -44,8 +44,7 @@
                     $str = serialize($item);
                     $strenc = urlencode($str);
                     
-                    if(isset($_SESSION['current_user'])){
-                    
+                    if(isset($_SESSION['current_user']) && isset($item["vendorUsername"])){
                         if($item["vendorUsername"]==$_SESSION['current_user']['username']){
                             echo 
                                 '
