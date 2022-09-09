@@ -15,7 +15,7 @@
         break;
     }
   }
-  $_login = isset($_SESSION["current_user"]) ? "Welcome, ".$_SESSION['current_user']['firstname'] : "<li><a href=".$_redirectLink.">Log in</a></li>";
+  $_login = isset($_SESSION["current_user"]) ? "Welcome, ".$_SESSION['current_user']['username']."!" : "<li><a href=".$_redirectLink.">Log in</a></li>";
 
   echo 
   '<nav>
