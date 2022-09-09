@@ -11,7 +11,7 @@
         $_homePageLink = "../vendors_page/view_my_product.php";
         break;
       case "shipper":
-        $_homePageLink = "../shipper_pages/shipper_main_pages.php";
+        $_homePageLink = "../shipper_pages/shipper_main_page.php";
         break;
     }
   }
