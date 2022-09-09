@@ -8,7 +8,7 @@
         $_homePageLink = "../Customer_pages/Customer_home_page.php";
         break;
       case "vendor":
-        $_homePageLink = "../vendors_page/view_my_product.php";
+        $_homePageLink = "../vendors_page/view_my_products.php";
         break;
       case "shipper":
         $_homePageLink = "../shipper_pages/shipper_main_page.php";
