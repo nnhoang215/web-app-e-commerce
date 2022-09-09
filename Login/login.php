@@ -64,8 +64,6 @@
                                         print_r("Login error");
                                     }
                                     break 2;
-                                } else {
-                                    echo isset($_password) ? 'Wrong password or username' : '';
                                 }
 
                                 if(empty($_username)){
@@ -76,6 +74,11 @@
                                     exit();
                                 }
                             }
+                        }
+                    }
+                    if ($_username != ""){
+                        if (!isset($_SESSION['current_user'])) {
+                            echo '<script>alert("Wrong username or password");</script>';
                         }
                     }
 

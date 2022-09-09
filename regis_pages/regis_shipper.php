@@ -59,7 +59,7 @@
                             array_push($userNameList, $records[$i][0]);   
                         }
                         if(isInArray($userNameList, validate($userName)) == true){
-                            header("Location: regis_shipper.php");
+                            echo '<script>alert("Username is already registered");</script>';
                         } else {
                             fwrite($file_handle, $information);
                             move_uploaded_file($temp_name,$path_filename_ext);

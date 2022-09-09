@@ -61,7 +61,8 @@
                             array_push($businessAddressList, $records[$i][9]);   
                         }
                         if(isInArray($userNameList, validate($userName)) == true || isInArray($businessAddressList, validate($businessAddress)) == true){
-                            header("Location: regis_vendors.php");
+                            // header("Location: regis_vendors.php");
+                            echo '<script>alert("Username or business address is already registered");</script>';
                         } else {
                             fwrite($file_handle, $information);
                             move_uploaded_file($temp_name,$path_filename_ext);
