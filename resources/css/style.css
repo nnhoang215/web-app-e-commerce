@@ -720,6 +720,7 @@ span {
 .contain-input span[id='pNameError'],
 .contain-input span[id='pTypeError'],
 .contain-input span[id='descriptionError'],
+.contain-input span[id='pIDError'],
 .contain-input span[id='priceError']{
     position: absolute ;
     right: 12px;
@@ -730,6 +731,12 @@ span {
 .product-form-img-container input,
 .product-form-img-container textarea {
   width: 100%;
+}
+label[class = 'text-danger']{
+  color: red;
+}
+label[class = 'text-sucecss']{
+  color: rgb(0, 204, 255);
 }
 
 /* ------------------------------- */

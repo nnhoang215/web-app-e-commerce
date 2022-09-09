@@ -181,18 +181,18 @@ function validatepDescription(){
     return true;
 }
 
-var vendorIDError = document.getElementById("vendorIDError");
+// var vendorIDError = document.getElementById("vendorIDError");
 var priceError = document.getElementById("priceError");
 
-function validateVendorID(){
-    var vendorID = document.getElementById('vendorID').value;
-    if(vendorID.length == 0 || vendorID == null){
-        vendorIDError.innerHTML = 'A vendor ID is required';
-        return false;
-    }
-    tagError.innerHTML = '';
-    return true;
-}
+// function validateVendorID(){
+//     var vendorID = document.getElementById('vendorID').value;
+//     if(vendorID.length == 0 || vendorID == null){
+//         vendorIDError.innerHTML = 'A vendor ID is required';
+//         return false;
+//     }
+//     tagError.innerHTML = '';
+//     return true;
+// }
 
 function validatePrice(){
     var price = document.getElementById('price').value;
@@ -209,5 +209,20 @@ function validatePrice(){
         return false;
     }
     priceError.innerHTML = '';
+    return true;
+}
+
+var pIDError = document.getElementById("pIDError");
+function validateProductID(){
+    var pID = document.getElementById('productID').value;
+    if(pID.length == 0 || pID == null){
+        pIDError.innerHTML = 'Product ID is required';
+        return false;
+    }
+    if (!pID.match(/P[0-9]/)){
+        pIDError.innerHTML = 'ID in format P(number)';
+        return false;
+    }
+    pIDError.innerHTML = '';
     return true;
 }

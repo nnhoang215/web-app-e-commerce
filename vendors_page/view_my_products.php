@@ -11,6 +11,7 @@
     </head>
     <body>
         <header>
+            
             <?php require '../php_scripts/general_header.php'?>
         </header>
         <section class="view-my-products">
@@ -26,7 +27,7 @@
             <div class="container-products">
             <?php 
                 $file = fopen('../dbFiles/Product.csv', 'r');
-                $headers = fgetcsv($file, 1000, ',');
+                $headers = fgetcsv($file);
                 
                 
                 while(( $row = fgetcsv($file))!== false){
@@ -44,9 +45,10 @@
                     $str = serialize($item);
                     $strenc = urlencode($str);
                     
-                    if(isset($_SESSION['current_user'])){
-                    
+                    if(isset($_SESSION['current_user']) && isset($item["vendorUsername"])){
                         if($item["vendorUsername"]==$_SESSION['current_user']['username']){
+                            // $a = var_dump(json_encode($item));
+                            // echo "<script>console.log($a)</script>";
                             echo 
                                 '
                                 <div class="col-product">
@@ -80,11 +82,10 @@
                         </a>
                 </div> -->
 
-                <div class="btn" id="view-more">
-                    <a href="">View more</a>
-                </div>
+                
                 
         </section>
+        <div class="btn" id="view-more"><a href="">View more</a> </div>
         <footer>
             <ul>
                 <li><a href="#">About</a></li>
