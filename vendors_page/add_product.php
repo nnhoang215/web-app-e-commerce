@@ -76,13 +76,13 @@
                             else
                             {
                             $price = clean_text($_POST["price"]);
-                            if(!preg_match("[0-9]",$price)){
-                            $error .= '<p><label class="text-danger">Only number is allowed</label></p>';          
-                            }
+                            // if(!preg_match("[0-9]",$price)){
+                            // $error .= '<p><label class="text-danger">Only number is allowed</label></p>';          
+                            // }
                             }
                             if(empty($_POST["product-type"]))
                             {
-                            $error .= '<p><label class="text-danger">MProduct type is required</label></p>';
+                            $error .= '<p><label class="text-danger">Product type is required</label></p>';
                             }
                             else
                             {
@@ -97,9 +97,7 @@
                             $description = clean_text($_POST["description"]);
                             }
 
-                            if($error == '')
-                            {
-                            
+                            if($error == ''){
                             $file_open = fopen('Product.csv', 'a');
                             
                             $form_data = array(
@@ -111,8 +109,9 @@
                             'price' => $price,
                             'vendorUsername' => $username
                             );
+                            var_dump($form_data);
 
-                            fputcsv($file_open, $form_data) or die('<script>console.log("unsuccessful");</script>');
+                            fputcsv($file_open, $form_data) or die('<script>console.log("Unsuccessful");</script>');
                             fclose($file_open);
                             $error = '<label class="text-success">Thank you for contacting us</label>';
                             $username = '';
@@ -127,30 +126,32 @@
                         
                         
                         ?>
+                        
+                        <?php echo "+".$error;?>
                         <div class="contain-input">
                             <label for="username">VENDOR USERNAME <span>*</span></label> <br>
-                            <input type="text" name="username" id="username" onkeyup="validateName()" >
+                            <input type="text" name="username" id="username" onkeyup="validateName()" value="<?php echo $username;?>" >
                             <span id="nameError"></span>
                         </div>
                             <div class="contain-input">
                             <label for="product-name">PRODUCT NAME <span>*</span></label> <br>
-                            <input type="text" name="product-name" id="product-name" onkeyup="validateProductName()">
+                            <input type="text" name="product-name" id="product-name" onkeyup="validateProductName()" value="<?php echo $product_name;?>">
                         <span id="pNameError"></span> <br>
                         </div>
                         <div class="contain-input">
                             <label for="price">PRODUCT PRICE (VND) <span>*</span></label> <br>
-                            <input type="text" name="price" id="price" onkeyup="validatePrice()">
+                            <input type="text" name="price" id="price" onkeyup="validatePrice()" value="<?php echo $price;?>">
                             <span id="priceError"></span> <br>
                         </div>
                         <div class="contain-input">
                             <label for="product-type">PRODUCT TYPE <span>*</span></label> <br>
-                            <input type="text" name="product-type" id="product-type" onkeyup="validatepProductType()">
+                            <input type="text" name="product-type" id="product-type" onkeyup="validatepProductType()" value="<?php echo $product_type;?>">
                             <span id="pTypeError"></span> <br>
                         </div>
                         <div class="contain-input">
                             <label for="description">DESCRIPTION <span>*</span></label> <br>
-                            <textarea name="desciption" id="desciption" cols="60" rows="10" onkeyup="validatepDescription()"></textarea>
-                            <span id="desciptionError"></span> <br>
+                            <textarea name="description" id="description" cols="60" rows="10" onkeyup="validatepDescription()"><?php echo $description;?></textarea>
+                            <span id="descriptionError"></span> <br>
                         </div>
 
                     <div class="product-img-input">

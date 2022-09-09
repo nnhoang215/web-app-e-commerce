@@ -73,7 +73,10 @@ if(isset($_POST["submit"]))
    'subject' => $subject,
    'message' => $message
   );
-  fputcsv($file_open, $form_data);
+  echo('<pre>');
+  print_r($form_data);
+  var_dump($form_data);
+  fputcsv($file_open, $form_data) or die('<script>console.log("Unsuccessful");</script>');
   fclose($file_open);
   $error = '<label class="text-success">Thank you for contacting us</label>';
   $name = '';

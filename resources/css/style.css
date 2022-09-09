@@ -715,7 +715,7 @@ span {
 .contain-input span[id='nameError'],
 .contain-input span[id='pNameError'],
 .contain-input span[id='pTypeError'],
-.contain-input span[id='desciptionError'],
+.contain-input span[id='descriptionError'],
 .contain-input span[id='priceError']{
     position: absolute ;
     right: 12px;
