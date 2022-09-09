@@ -28,14 +28,12 @@
                 $file = fopen('../dbFiles/Product.csv', 'r');
                 $headers = fgetcsv($file);
                 
-                
                 while(( $row = fgetcsv($file))!== false){
                     $item = [];
                     foreach ($row as $key => $value) 
                          $item[$headers[$key]] = $value ?: null;
             
                     $data[] = $item;
-                    
                 }
                 $_SESSION['data'] = $data;
                 $i = 1;
@@ -65,24 +63,14 @@
                 }
                 // Close file
                 fclose($file);
-
             ?>
             <script>
             console.log(<?= json_encode($_SESSION['data']); ?>);
 
             </script>
-                <!-- <div class="row-product">
-                    <div class="col-product">
-                        <a href="#">
-                            <img src="" alt="product1">
-                            <p>product name</p>
-                        </a>
-                </div> -->
-
                 <div class="btn" id="view-more">
                     <a href="">View more</a>
                 </div>
-                
         </section>
         <footer>
             <ul>
