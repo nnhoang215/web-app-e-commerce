@@ -49,7 +49,7 @@
                                         "business-address" => $records[$i][9],
                                         "age" => $records[$i][10],
                                         "role" => $records[$i][11],
-                                        "distributionHub" => $records[$i][12],
+                                        "distribution_hub" => $records[$i][12],
                                         "imageURL" => $records[$i][13]                            
                                     );
                                     $_SESSION["current_user"] = $currentUser;

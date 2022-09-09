@@ -89,7 +89,7 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="hub">Distribution Hub: <span>'.$_SESSION['current_user']['distributionHub'].'</span></div>
+                                        <div class="hub">Distribution Hub: <span>'.$_SESSION['current_user']['distribution_hub'].'</span></div>
                                     </div>
                                     ';
                                     break;

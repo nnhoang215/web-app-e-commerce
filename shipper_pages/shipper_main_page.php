@@ -1,49 +1,34 @@
 <?php
     session_start();
 ?>
-
 <!DOCTYPE html>
-
 <html>
     <head>
-        <title>Shopee web</title>
-        <link rel="stylesheet" href="../resources/css/style.css">
-        <link rel="stylesheet" href="../resources/css/queries.css">
+      <title>Shopee web</title>
+      <link rel="stylesheet" href="../resources/css/style.css">
+      <link rel="stylesheet" href="../resources/css/queries.css">
     </head>
     <body>
         <header>
           <?php require '../php_scripts/general_header.php'?>
         </header> 
             <section class="shipper-main-page">
-                <!-- <h1>Welcome to the HUB</h1>
-                <div class="order-container">
-                    <div class="field">Order ID</div>
-                    <div class="field">Buyer ID</div>
-                    <div class="field">Total amount</div>
-                    <div class="field">Status</div>
-                </div>
-                <div class="order-container">
-                    <div class="field">1</div>
-                    <div class="field">1</div>
-                    <div class="field">20000</div>
-                    <div class="field">active</div>
-                </div> -->
                 <?php
                   $orderList = [];
                   $distributionHubList = [];
-                  $curDistributionHub = $_SESSION['current_user']['distributionHub'];
+                  $curDistributionHub = $_SESSION['current_user']['distribution_hub'];
                   echo '<h1> Welcome to '.$curDistributionHub.'</h1>';
                   $file = "../dbFiles/Order.db.csv";
-                  $file_handle = fopen($file, "r");
-                  flock($file_handle, LOCK_SH);
-                  while($line = fgets($file_handle)){
+                  $fileHandle = fopen($file, "r");
+                  flock($fileHandle, LOCK_SH);
+                  while($line = fgets($fileHandle)){
                       $orderList[] = explode(",", $line);
                   }
-                  if($file_handle == false){
+                  if($fileHandle == false){
                       die("Error opening file: ". $file);
                   }
-                  flock($file_handle, LOCK_UN);
-                  fclose($file_handle);
+                  flock($fileHandle, LOCK_UN);
+                  fclose($fileHandle);
 
                   $fileDis = "../dbFiles/DistributeHub.csv";
                   $fileHandle = fopen($fileDis, "r");
