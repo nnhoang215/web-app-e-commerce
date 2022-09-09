@@ -16,24 +16,39 @@
             <?php
                 if (isset($_POST['log_out'])){
                     unset($_SESSION["current_user"]);
+                    session_destroy();
                     header("Location: ../Login/login.php");
                 }
             ?>
             <h1>My Account</h1>
                 <div class="container">
-                    <div class="profile-img"><img src="https://scontent.fhan2-1.fna.fbcdn.net/v/t39.30808-6/272953150_4284994721600824_7339779710394681320_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=u6uSccsI91wAX_0X_HC&_nc_ht=scontent.fhan2-1.fna&oh=00_AT_FEji993tbcNnvFzmUPYVzW89kW8fi77uSWOTBRokYbg&oe=6309D0A6" alt="profile-picture"></div>
+                    <?php 
+                        $_avatarLink = $_SESSION["current_user"]["imageURL"];
+                        echo '<div><img width="300px" src="'.$_avatarLink.'" alt="profile-picture"></div>';
+                    ?>
                     <div class="information">
                         <div class="row">
-                            <div class="name">Name: <span>Gia Thanh Nguyen</span></div>    <!-- insert user information into span  -->
+                            <div class="name">Name: <span><?php echo $_SESSION['current_user']['firstname'] ." ". $_SESSION['current_user']['lastname']; ?></span></div> 
                         </div>
                         <div class="row">
-                            <div class="DOB">Date Of Birth: <span>01/11/2002</span></div>
+                            <div class="name">Business Name: <span><?php echo $_SESSION['current_user']['business-name'] ." ". $_SESSION['current_user']['lastname']; ?></span></div> 
                         </div>
                         <div class="row">
-                            <div class="Address">Address: <span>RMIT HANOI</span></div>
+                            <div class="DOB">
+                                Date Of Birth: <span><?php echo $_SESSION['current_user']['DOB']; ?></span>
+                            </div>
                         </div>
                         <div class="row">
-                            <div class="gender">Gender: <span>Man</span></div>
+                            <div class="Address">Email: <span><?php echo $_SESSION['current_user']['email'];?></span></div>
+                        </div>
+                        <div class="row">
+                            <div class="Address">Address: <span><?php echo $_SESSION['current_user']['address'];?></span></div>
+                        </div>
+                        <div class="row">
+                            <div class="Address">Business Address: <span><?php echo $_SESSION['current_user']['business-address'];?></span></div>
+                        </div>
+                        <div class="row">
+                            <div class="gender">Gender: <span><?php echo $_SESSION['current_user']['gender'];?></span></div>
                         </div>
                     </div>
                 </div>
