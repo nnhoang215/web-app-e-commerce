@@ -66,7 +66,7 @@
                   $orderInCurHubList = [];
                   for($i = 0; $i < count($orderList); $i++){
                       if($curDistributionHubID == $orderList[$i][5]){
-                          if($orderList[$i][4] == "active"){
+                          if($orderList[$i][4] == "active" || $orderList[$i][4] == "delivered"){
                               array_push($orderInCurHubList, $orderList[$i]);
                           }
                       }
