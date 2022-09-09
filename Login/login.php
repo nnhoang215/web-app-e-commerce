@@ -108,7 +108,7 @@
                        <form action="login.php" method="post">
                        <div class="col">
                             <button class="btn" name="login-btn" value="true">
-                                <a href="#">Log in</a>
+                                <a>Log in</a>
                             </button>
                        </div>
                        </form>
