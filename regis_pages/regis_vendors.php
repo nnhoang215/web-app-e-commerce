@@ -115,7 +115,7 @@
                         </div>
                         <div class="col">
                             <label for="password">New Password</label>
-                            <input type="text" name="password" id="password">
+                            <input type="password" name="password" id="password">
                         </div>
                     </div>
                     <div class="row">
