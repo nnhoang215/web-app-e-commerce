@@ -186,4 +186,8 @@
     margin-top: 20px;
     margin-bottom: 20px;
   }
+
+  .login-form .container form .col .btn{
+    font-size: 100%;
+  }
 }
