@@ -700,8 +700,50 @@ span {
 /* ----------Add to cart page------------ */
 /* ------------------------------------ */
 
+.cart-detail-page {
+  margin: 50px;
+}
 .cart-container {
   margin: 50px;
+}
+.table_title {
+  font-weight: bold;
+}
+.cart-container th,
+td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.cart-container th {
+  background-color: rgb(107, 128, 244);
+  color: white;
+}
+
+.clear-button {
+  padding: 8px 10px;
+}
+.order-button {
+  font-size: 100%;
+  margin-top: 10px;
+  border-radius: 5px;
+  width: 120px;
+  height: 40px;
+  background-color: rgb(107, 128, 244);
+  color: white;
+  padding: 5px 5px;
+}
+
+.home-button {
+  background-color: black;
+  font-size: 100%;
+  margin-top: 10px;
+  border-radius: 5px;
+  width: 120px;
+  height: 40px;
+  color: white;
+  padding: 5px 5px;
 }
 
 /* ------------------------------ */

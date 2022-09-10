@@ -153,7 +153,7 @@
                         </div>
                         <div class="col">
                             <label for="password">New Password</label>
-                            <input type="text" name="password" id="password" required>
+                            <input type="password" name="password" id="password" required>
                         </div>
                     </div>
                     <div class="row">

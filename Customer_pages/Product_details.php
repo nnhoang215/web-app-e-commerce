@@ -11,10 +11,10 @@
         <header>
             <nav>
                 <div class="nav-bar">
-                <div class="logo-name">
-                    <a href="../index.php"><img src="/img/shopee_logo.png" alt="logo"></a>
-                    <p><a href="../index.php">The world's biggest E-commerce application</a></p>
-                </div>
+                    <div class="logo-name">
+                        <a href="../index.php"><img src="/img/shopee_logo.png" alt="logo"></a>
+                        <p><a href="../index.php">The world's biggest E-commerce application</a></p>
+                    </div>
                     <form method="get" action="Customer_home_page.php">
                     <div class="search-bar">
                         <input type="text" name="name" placeholder="  Search..." id="search-text">
@@ -23,9 +23,7 @@
                     </form>
                     <div class="nav">
                         <ul>
-                        <ul>
                             <?php require '../php_scripts/nav_buttons.php'?>
-                        </ul>
                         </ul>
                     </div>
                 </div>
@@ -49,9 +47,11 @@
                <div class="product-details-container">
                     <div class="col-product">
                     <img src="/img/'. $arr['imagefileName'] .'" alt="">
-                    <p class="product-details-name">'. $arr['name'] .'</p>
-                    <p class="product-details-price">'. $arr['price'] .'</p>
-                    <p class="product-details-des">'. $arr['description'] .'</p>
+                    <p class="product-details-name">Product Name: '. $arr['name'] .'</p>
+                    <p class="product-details-des">ProductID: '. $arr['productID'] .'</p>
+                    <p class="product-details-price">Price(VND): '. $arr['price'] .'</p>
+                    <p class="product-details-des">Description: '. $arr['description'] .'</p>
+                    <p class="product-details-des">Vendor: '. $arr['vendorUsername'] .'</p>
                     <form method="get" action="Customer_cart.php">
                         <button onclick="SaveItem()" type="submit" name="act" > Add to cart </button>
                     </form>
@@ -73,11 +73,14 @@
 
 <script>
 function SaveItem() {
+    var productID = "<?php Print($arr['productID']); ?>";
+    var name =  "<?php Print($arr['name']); ?>";
+    var price =  "<?php Print($arr['price']); ?>";
+    var vendor =  "<?php Print($arr['vendorUsername']); ?>";
+    var productValue = []
 
-var name =  "<?php Print($arr['name']); ?>";
-var price =  "<?php Print($arr['price']); ?>";
-localStorage.setItem(name, price);
-doShowAll();
-
+    productValue.push(name,price,vendor);
+    localStorage.setItem(productID, JSON.stringify(productValue));
+    doShowAll();
 }
 </script>
