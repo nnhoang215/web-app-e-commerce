@@ -5,9 +5,7 @@
 
 <html>
     <head>
-        <title>Shoppee web</title>
-        <link rel="stylesheet" href="../resources/css/style.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <?php require '../php_scripts/general_head.php'?>
     </head>
     <body>
         <header>
@@ -20,7 +18,7 @@
                     <p>Here are the Current Products on your Store.</p>
                 </div>
                 <div class="btn">
-                    <a href="add_product.html">+ ADD MORE</a>
+                    <a href="add_product.php">+ ADD MORE</a>
                 </div>
             </div>
             <div class="container-products">
@@ -28,14 +26,12 @@
                 $file = fopen('../dbFiles/Product.csv', 'r');
                 $headers = fgetcsv($file);
                 
-                
                 while(( $row = fgetcsv($file))!== false){
                     $item = [];
                     foreach ($row as $key => $value) 
                          $item[$headers[$key]] = $value ?: null;
             
                     $data[] = $item;
-                    
                 }
                 $_SESSION['data'] = $data;
                 $i = 1;
@@ -65,25 +61,13 @@
                 }
                 // Close file
                 fclose($file);
-
             ?>
             <script>
             console.log(<?= json_encode($_SESSION['data']); ?>);
-
             </script>
-                <!-- <div class="row-product">
-                    <div class="col-product">
-                        <a href="#">
-                            <img src="" alt="product1">
-                            <p>product name</p>
-                        </a>
-                </div> -->
-
-                <div class="btn" id="view-more">
-                    <a href="">View more</a>
-                </div>
                 
         </section>
+        <div class="btn" id="view-more"><a href="">View more</a> </div>
         <footer>
             <ul>
                 <li><a href="#">About</a></li>
@@ -93,4 +77,3 @@
             </ul>
         </footer>
     </body>
-</html>

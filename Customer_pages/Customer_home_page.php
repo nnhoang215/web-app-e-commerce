@@ -6,13 +6,10 @@ session_start();
 
 <html>
     <head>
-        <title>Shoppee web</title>
-        <link rel="stylesheet" href="../resources/css/style.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <?php require '../php_scripts/general_head.php'?>
     </head>
     <body>
         <header>
-    
             <nav>
                 <div class="nav-bar">
                 <div class="logo-name">
@@ -30,10 +27,8 @@ session_start();
                             <?php 
                                 $_redirectLink = isset($_SESSION["current_user"]) ? "../Myaccount/Myaccount.php" : "../Login/login.php";
                                 echo '<li><a href="'.$_redirectLink.'">My Account</a></li>';
-                            ?>
-                            <?php 
-                                $_login = isset($_SESSION["current_user"]) 
-                                    ? "Welcome, ".$_SESSION['current_user']['firstname'] 
+                                $_login = isset($_SESSION["current_user"])
+                                    ? "Welcome, ".$_SESSION['current_user']['username'] 
                                     : "<li><a href=".$_redirectLink.">Log in</a></li>";
                                 echo ''.$_login.'';
                             ?>
@@ -56,10 +51,8 @@ session_start();
 
                 <div class="special-deals" id="here">
                     <h3 class="special-deals-header">All products</h1>
-                <!-- <div class="row-products"> -->
                 
                 <?php
-                echo $_SESSION["current_user"]["username"];
 
                 $file = fopen('../dbFiles/Product.csv', 'r');
 
