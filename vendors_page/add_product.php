@@ -184,10 +184,10 @@
         </section>
         <footer>
             <ul>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Copyright</a></li>
-                <li><a href="#">Policy</a></li>
-                <li><a href="#">Helps link</a></li>   
+                <li><a href="./sub-pages/About.php">About</a></li>
+                <li><a href="./sub-pages/Copyright.php">Copyright</a></li>
+                <li><a href="./sub-pages/Policy.php">Policy</a></li>
+                <li><a href="./sub-pages/Helpslink.php">Helps link</a></li>   
             </ul>
         </footer>
     </body>

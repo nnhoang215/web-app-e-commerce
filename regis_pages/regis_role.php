@@ -22,10 +22,10 @@
         </section>
         <footer>
             <ul>
-                <li><a href="../sub-pages/About.html">About</a></li>
-                <li><a href="../sub-pages/Copyright.html">Copyright</a></li>
-                <li><a href="../sub-pages/Policy.html">Policy</a></li>
-                <li><a href="../sub-pages/Helpslink.html">Helps link</a></li>   
+                <li><a href="./sub-pages/About.php">About</a></li>
+                <li><a href="./sub-pages/Copyright.php">Copyright</a></li>
+                <li><a href="./sub-pages/Policy.php">Policy</a></li>
+                <li><a href="./sub-pages/Helpslink.php">Helps link</a></li> 
             </ul>
         </footer>
     </body>
