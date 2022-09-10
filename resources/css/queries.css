@@ -74,7 +74,12 @@
   .container {
     margin-left: -10px;
   }
-
+  /* .header-addmore .btn {
+    width: 200px;
+  } */
+  .btn a {
+    font-size:30%;
+  }
   /* -------------------------- */
   /* ---------Customer product page-------------- */
   /* -------------------------- */

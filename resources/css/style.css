@@ -353,15 +353,13 @@ span {
 /* ---------------------------------- */
 
 .view-my-products {
-  margin-top: 30px;
-  margin-bottom: 50px;
+  margin: 50px;
 }
 .header-addmore {
   display: flex;
   justify-content: space-around;
 }
 .header-my-products {
-  margin-left: -100px;
   text-transform: uppercase;
   margin-bottom: 50px;
   font-size: 150%;
