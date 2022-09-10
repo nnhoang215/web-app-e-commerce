@@ -1,0 +1,9 @@
+username,password,firstname,lastname,email,gender,DOB,address,business-name,business-address,age,role,distribution-hub,URL
+customer2,$2y$10$Q/TPjYuSrE2o7naipLY6BOvVg6Z/aC7Bug/2AIEHz8T1GF2787jFy,Thuy,Hoang,thuyhoang@gmail.com,Female,2002-02-10,123 Kim Ma,null,null,null,customer,null,../img/The-Girl-from-Plainvilles-Creator-and-Star-Break-Down-That.jpg
+customer1,$2y$10$cLgFgp7Y3y210VxjYH29YuAgidSTOjiArFbe96hx6R30JgxcVUc3G,Nguyen,Hoang,hoangnguyen@gmail.com,Male,1998-12-23,123 Hoang Mai,null,null,null,customer,null,../img/The-Girl-from-Plainvilles-Creator-and-Star-Break-Down-That.jpg
+vendor11,$2y$10$683YTfsWcXR5BID8wXoDE.rqEc4ZFSzJXZK1ue6CI9znT1vQv.EWe,null,null,null,null,null,null,bro,nguyen,null,vendor,null,../img/1657559131_46400.jpeg
+vendor12,$2y$10$9vRTdzRTIrgffbkh/rhYduWW0DiY.AC1N9dWNiFFw/Bl6TxR7v81a,null,null,null,null,null,null,Thanh,123 tran khat chan,null,vendor,null,../img/1657559131_46400.jpeg
+vendor13,$2y$10$WsXUXURrMGo37oaWb2qpwOU0pyIZJ88N1RyJeWjLb2b5Bv8OE2VgK,null,null,null,null,null,null,kien ,tran,null,vendor,null,../img/1657559131_46400.jpeg
+shipper1,$2y$10$tfgXz/adRRLtpXcVtMYkBu535oseVCdAG1YfriGZMBOIQPtAy/d9u,binh ,nguyen,null,null,null,null,null,null,34,shipper,RMIT SGS Hub,../img/boy.jpg
+shipper2,$2y$10$xWcrIITxH2Al7vpwqc4wCO.beXjgqcvnLwN76EYmlK0Kde8OyJhtO,Linh,Ho,null,null,null,null,null,null,19,shipper,RMIT Hanoi Hub,../img/The-Girl-from-Plainvilles-Creator-and-Star-Break-Down-That.jpg
+shipper3,$2y$10$o/ZxMiflypHnea8L6.enFuvM4XC.dJetdDGQPXsbuCbEEmfECHoA.,ha,thu,null,null,null,null,null,null,45,shipper,RMIT Danang Hub,../img/boy.jpg
