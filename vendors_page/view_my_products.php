@@ -65,13 +65,11 @@
                 // Close file
                 fclose($file);
             ?>
+
             <script>
             console.log(<?= json_encode($_SESSION['data']); ?>);
-
             </script>
-                <div class="btn" id="view-more">
-                    <a href="">View more</a>
-                </div>
+                
         </section>
         <div class="btn" id="view-more"><a href="">View more</a> </div>
         <footer>

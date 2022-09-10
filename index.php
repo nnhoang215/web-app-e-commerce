@@ -5,7 +5,7 @@
 
 <html>
     <head>
-        <?php require '../php_scripts/general_head.php'?>
+        <?php require './php_scripts/general_head.php'?>
     </head>
     <body>
         <header>
