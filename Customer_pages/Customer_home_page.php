@@ -6,19 +6,16 @@ session_start();
 
 <html>
     <head>
-        <title>Shoppee web</title>
-        <link rel="stylesheet" href="../resources/css/style.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <?php require '../php_scripts/general_head.php'?>
     </head>
     <body>
         <header>
-    
             <nav>
                 <div class="nav-bar">
-                    <div class="logo-name">
-                        <a href="../index.html"><img src="/img/shopee_logo.png" alt="logo"></a>
-                        <p>Shoppepepepepepe</p>
-                    </div>
+                <div class="logo-name">
+                    <a href="../index.php"><img src="/img/shopee_logo.png" alt="logo"></a>
+                    <p><a href="../index.php">The world's biggest E-commerce application</a></p>
+                </div>
                     <form method="get" action="Customer_home_page.php">
                     <div class="search-bar">
                         <input type="text" name="name" placeholder="  Search..." id="search-text">
@@ -30,10 +27,8 @@ session_start();
                             <?php 
                                 $_redirectLink = isset($_SESSION["current_user"]) ? "../Myaccount/Myaccount.php" : "../Login/login.php";
                                 echo '<li><a href="'.$_redirectLink.'">My Account</a></li>';
-                            ?>
-                            <?php 
-                                $_login = isset($_SESSION["current_user"]) 
-                                    ? "Welcome, ".$_SESSION['current_user']['firstname'] 
+                                $_login = isset($_SESSION["current_user"])
+                                    ? "Welcome, ".$_SESSION['current_user']['username'] 
                                     : "<li><a href=".$_redirectLink.">Log in</a></li>";
                                 echo ''.$_login.'';
                             ?>
@@ -199,7 +194,7 @@ session_start();
                 <!-- <div class="row-products"> -->
                 
                 <?php
-                
+
                 $file = fopen('../dbFiles/Product.csv', 'r');
 
                 // Headers

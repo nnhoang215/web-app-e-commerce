@@ -1,20 +1,20 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 
 <html>
     <head>
-        <title>Shoppee web</title>
-        <link rel="stylesheet" href="../resources/css/style.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <?php require '../php_scripts/general_head.php'?>
     </head>
     <body>
         <header>
-    
             <nav>
                 <div class="nav-bar">
-                    <div class="logo-name">
-                        <a href="../index.html"><img src="/img/shopee_logo.png" alt="logo"></a>
-                        <p>Shoppepepepepepe</p>
-                    </div>
+                <div class="logo-name">
+                    <a href="../index.php"><img src="/img/shopee_logo.png" alt="logo"></a>
+                    <p><a href="../index.php">The world's biggest E-commerce application</a></p>
+                </div>
                     <form method="get" action="Customer_home_page.php">
                     <div class="search-bar">
                         <input type="text" name="name" placeholder="  Search..." id="search-text">
@@ -23,8 +23,7 @@
                     </form>
                     <div class="nav">
                         <ul>
-                            <li><a href="#">My Account</a></li>
-                            <li><a href="#">Log in</a></li>
+                            <?php require '../php_scripts/nav_buttons.php'?>
                         </ul>
                     </div>
                 </div>

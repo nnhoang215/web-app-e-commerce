@@ -5,14 +5,11 @@
 
 <html>
     <head>
-        <title>Shoppee web</title>
+        <?php require '../php_scripts/general_head.php'?>
         <script defer src="/resources/js/regis.js"></script>
-        <link rel="stylesheet" href="../resources/css/style.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <body>
         <header>
-            
             <?php require '../php_scripts/general_header.php'?>
         </header>
         
@@ -27,7 +24,7 @@
             <div class="product-form-img-container">
                 <div class="product-form">
                     <h3>PRODUCT DETAILS</h3>
-                    <?php echo "Hello Vendor: ".$_SESSION['current_user']['firstname']?>
+                    <?php echo "Hello Vendor: ".$_SESSION['current_user']['username']?>
                     <p>Add product details here</p>
                     <form action="add_product.php" method="post" enctype="multipart/form-data">
                         <?php 
@@ -47,6 +44,9 @@
                         $product_type = '';
                         $description = '';
                         $error = '';
+                        $file = " ";
+                        $path_filename_ext = " ";
+                        $tempName = " ";
                         
                         if(isset($_POST['submit']) && isset($_SESSION['current_user'])){
                             if(empty($_POST['productID'])){
@@ -90,34 +90,37 @@
                                 $description = clean_text($_POST["description"]);
                             }
 
-                            if($error == ''){
+                                if (($_FILES['profile_image']['name']!="" && $_FILES['profile_image']['size'] < 15000
+                                    && ($_FILES['profile_image']['type'] == "image/jpg") || ($_FILES["profile_image"]["type"] == "image/jpeg") || ($_FILES["profile_image"]["type"] == "image/png"))){
+                                    $target_dir = "../img/";
+                                    $file = $_FILES['profile_image']['name'];
+                                    $path = pathinfo($file);
+                                    $filename = $path['filename'];
+                                    $ext = $path['extension'];
+                                    $tempName = $_FILES['profile_image']['tmp_name'];
+                                    $path_filename_ext = $target_dir.$filename.".".$ext;
 
-                                // $form_data = array(
-                                //         'productID' => $productID,
-                                //         'name'  => $product_name,
-                                //         'type'  => $product_type,
-                                //         'description'  => $description,
-                                //         'imagefileName' => null,
-                                //         'price' => $price,
-                                //         'vendorUsername' => $username
-                                //         );
-                                // var_dump($form_data);
-                                $data = $productID.','.$product_name.','.$product_type.','.$description.','."null".','.$price.','.$path_filename_ext.','.$username."\n";
+                                    $data = $productID.','.$product_name.','.$product_type.','.$description.','.$price.','.$path_filename_ext.','.$username."\n";
                                 
-                                $file_name = '../dbFiles/Product.csv';
-                                $file_open = fopen($file_name, 'a+');
-                                move_uploaded_file($temp_name,$path_filename_ext);
-                                
+                                    $file_name = '../dbFiles/Product.csv';
+                                    $file_open = fopen($file_name, 'a+');
 
-                                // print_r(fgetcsv($file_open));
-                                flock($file_open,LOCK_SH);      
-                                
-                                fwrite($file_open, $data);
+                                    if (move_uploaded_file($_FILES['profile_image']['tmp_name'], $path_filename_ext)) {
+                                        echo "The file ". htmlspecialchars( basename( $_FILES["profile_image"]["name"])). " has been uploaded.";
+                                    } else {
+                                        echo "Sorry, there was an error uploading your file.";
+                                    }
+                                    
+                                    flock($file_open,LOCK_SH);      
+                                    
+                                    fwrite($file_open, $data);
 
-                                flock($file_open, LOCK_UN);
+                                    flock($file_open, LOCK_UN);
 
-                                fclose($file_open);
-                                
+                                    fclose($file_open);
+                                } else {
+                                    echo '<script>alert("File size is too big or the image type is not jpeg/jpg/png");</script>';
+                                }
 
                                 $error = '<label class="text-success">Adding product successfully</label>';
                                 $productID = '';
@@ -126,11 +129,7 @@
                                 $price = '';
                                 $product_type = '';
                                 $description = '';
-                                
-                            }
                            }
-                        
-                        
                         ?>
                         
                         <?php echo $error;?>
@@ -162,10 +161,10 @@
 
                     <div class="product-img-input">
                         <div class="chosen-file" id="imgBox">
-                            <img  src="#" alt="chosen file">
+                            <img  src="../img/no_image.jpeg" alt="chosen file">
                         </div>
-                        <div class="profile_image">
-                            <input type="file" name="profile_image" id="profile_image" required>
+                        <div class="product_image">
+                            <input type="file" name="profile_image" id="profile_image" accept="image/*" required>
                             
                         </div>
                         <h4>Note:</h4>
@@ -177,7 +176,6 @@
                     <div class="form-group">
                         <input type="submit" name="submit" class="btn btn-info" value="Submit" />
                     </div>
-
                 </form>
                 </div>
                 
