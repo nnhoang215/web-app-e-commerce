@@ -106,13 +106,7 @@
                 header("Location: ./shipper_main_page.php");
             }
         ?>
-        <footer>
-            <ul>
-                <li><a href="./sub-pages/About.html">About</a></li>
-                <li><a href="./sub-pages/Copyright.html">Copyright</a></li>
-                <li><a href="./sub-pages/Policy.html">Policy</a></li>
-                <li><a href="./sub-pages/Helpslink.html">Helps link</a></li>
-            </ul>
-        </footer>
+    <?php require '../php_scripts/general_footer.php'?>
+
     </body>
 </html>
