@@ -38,7 +38,49 @@
     .nav ul li{
         width: 150px;
     }
+    /* -------------------------- */
+    /* ---------Vendor product page-------------- */
+    /* -------------------------- */
 
+    .product-form-img-container{
+        max-width: 925px;
+        flex-direction: column;
+        margin-bottom: 50px;
+        margin-top: 40px;
+        
+    }
+
+    .header-my-products p,
+    .header-my-products h1{
+        margin-left: 50px;
+    }
+
+    .view-my-products{
+        flex-direction: column-reverse;
+    }
+    .row-products{
+        margin-left: auto;
+        margin-right: auto;
+        flex-direction: column;
+    }
+
+    .col-product{
+        min-width: 266px;
+        max-width: fit-content;
+    }
+    .col-product a,
+    .col-product img{
+        background-color: rgb(83, 161, 221);
+        font-size: larger;
+        text-align: center;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: auto;
+    }
+    .col-product img{
+    margin-top: 10px;
+    }
 }
 
 @media only screen and (max-width: 767px){
