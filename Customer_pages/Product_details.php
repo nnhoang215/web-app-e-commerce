@@ -47,11 +47,11 @@
                <div class="product-details-container">
                     <div class="col-product">
                     <img src="/img/'. $arr['imagefileName'] .'" alt="">
-                    <p class="product-details-name">'. $arr['name'] .'</p>
-                    <p class="product-details-des"> ProductID: '. $arr['productID'] .'</p>
-                    <p class="product-details-price">'. $arr['price'] .'</p>
-                    <p class="product-details-des">'. $arr['description'] .'</p>
-                    <span>Vendor: </span><p class="product-details-des">'. $arr['vendorUsername'] .'</p>
+                    <p class="product-details-name">Product Name: '. $arr['name'] .'</p>
+                    <p class="product-details-des">ProductID: '. $arr['productID'] .'</p>
+                    <p class="product-details-price">Price(VND): '. $arr['price'] .'</p>
+                    <p class="product-details-des">Description: '. $arr['description'] .'</p>
+                    <p class="product-details-des">Vendor: '. $arr['vendorUsername'] .'</p>
                     <form method="get" action="Customer_cart.php">
                         <button onclick="SaveItem()" type="submit" name="act" > Add to cart </button>
                     </form>
