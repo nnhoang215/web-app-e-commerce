@@ -16,8 +16,8 @@
                     $userName = $_POST['username'];
                     $password = $_POST['password'];
                     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-                    $businessName = $_POST['business-name'];
-                    $businessAddress = $_POST['business-address'];
+                    $businessName = str_replace(array(' , ',', ',' ,',','),'-',$_POST['business-name']);
+                    $businessAddress = str_replace(array(' , ',', ',' ,',','),'-',$_POST['business-address']);
                     $file = " ";
                     $path_filename_ext = " ";
                     $temp_name = " ";

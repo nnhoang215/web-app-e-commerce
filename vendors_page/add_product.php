@@ -52,7 +52,7 @@
                             if(empty($_POST['productID'])){
                                 $error .= '<p><label class="text-danger">Please Enter your Product ID</label></p>';
                             }else{
-                                $productID = $_POST['productID'];
+                                $productID = str_replace(array(' , ',', ',' ,',','),'-',$_POST['productID']);
                             }
                             if(!preg_match("/P[0-9]/",$productID)){
                                 $error .= '<p><label class="text-danger">ID can only have number</label></p>';
@@ -63,13 +63,14 @@
                             if(empty($_POST["product-name"])){
                                 $error .= '<p><label class="text-danger">Please Enter your Product name</label></p>';
                             }else{
-                                $product_name = clean_text($_POST["product-name"]);
+                                $product_name = clean_text(str_replace(array(' , ',', ',' ,',','),'-',$_POST["product-name"]));
                             }
 
                             if(empty($_POST["price"])){
                                 $error .= '<p><label class="text-danger">Price is required</label></p>';
                             }else{
-                                $price = clean_text($_POST["price"]);}
+                                $price = clean_text(str_replace(array(' , ',', ',' ,',','),'-',$_POST["price"]));
+                            }
 
                             if(!preg_match("/[0-9]/",$price)){
                                 $error .= '<p><label class="text-danger">Only number is allowed</label></p>';          
@@ -81,13 +82,13 @@
                             if(empty($_POST["product-type"])){
                                 $error .= '<p><label class="text-danger">Product type is required</label></p>';
                             }else{
-                                $product_type = clean_text($_POST["product-type"]);
+                                $product_type = clean_text(str_replace(array(' , ',', ',' ,',','),'-',$_POST["product-type"]));
                             }
 
                             if(empty($_POST["description"])){
                                 $error .= '<p><label class="text-danger">Description is required</label></p>';
                             }else{
-                                $description = clean_text($_POST["description"]);
+                                $description = clean_text(str_replace(array(' , ',', ',' ,',','),'-',$_POST["description"]));
                             }
 
                                 if (($_FILES['profile_image']['name']!="" && $_FILES['profile_image']['size'] < 15000

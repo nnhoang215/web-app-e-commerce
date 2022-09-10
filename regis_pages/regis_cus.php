@@ -20,7 +20,7 @@
                     $email = $_POST['email'];
                     $gender = $_POST['gender'];
                     $DOB = $_POST['DOB'];
-                    $address = $_POST['address'];
+                    $address = str_replace(array(' , ',', ',' ,',','),'-',$_POST['address']);
                     $file = " ";
                     $path_filename_ext = " ";
                     $tempName = " ";
