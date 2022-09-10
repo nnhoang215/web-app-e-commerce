@@ -17,7 +17,7 @@ session_start();
                 <div class="nav-bar">
                     <div class="logo-name">
                         <a href="../index.html"><img src="/img/shopee_logo.png" alt="logo"></a>
-                        <p>Shoppepepepepepe</p>
+                        <p><a href="../index.php">The world's biggest E-commerce application</a></p>
                     </div>
                     <form method="get" action="Customer_home_page.php">
                     <div class="search-bar">
@@ -27,8 +27,16 @@ session_start();
                     </form>
                     <div class="nav">
                         <ul>
-                            <li><a href="#">My Account</a></li>
-                            <li><a href="#">Log in</a></li>
+                            <?php 
+                                $_redirectLink = isset($_SESSION["current_user"]) ? "../Myaccount/Myaccount.php" : "../Login/login.php";
+                                echo '<li><a href="'.$_redirectLink.'">My Account</a></li>';
+                            ?>
+                            <?php 
+                                $_login = isset($_SESSION["current_user"]) 
+                                    ? "Welcome, ".$_SESSION['current_user']['firstname'] 
+                                    : "<li><a href=".$_redirectLink.">Log in</a></li>";
+                                echo ''.$_login.'';
+                            ?>
                         </ul>
                     </div>
                 </div>
