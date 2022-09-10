@@ -130,7 +130,7 @@
             list += "<tr><td><i>No item in cart</i></td></tr>\n";
         }
         list += "<tr><td class='table_title'>Total</td><td><input type='hidden' value='"+ totalPrice +"' name='totalPrice'>" + totalPrice + "</td>\n";
-        var productListString=String(productlist).replace(",",";");
+        var productListString=String(productlist).replaceAll(",",";");
         list += "<tr><td class='table_title'>Product Items</td><td><input type='hidden' value='"+ productListString+"' name='productlist'>" + productlist + "</td>\n";
         
         document.getElementById('list').innerHTML = list;

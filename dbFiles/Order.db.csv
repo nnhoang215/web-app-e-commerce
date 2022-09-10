@@ -1,5 +1,6 @@
 orderID,username,vendorID,totalAmount,products,status,hubID,shippingCost
-16,thu123,vendor1,50000,"Coca 2;Pho 1",canceled,123C,0
-12,thu123,vendor1,335000,"Pho 2;Coca Cola,Hoodie 1,Pho 1",active,123C,0
-48,thu123,vendor1,50000,"Coca Cola;Pho 1",active,123A,0,
-20,thu123,lotumo123,285000,"Hoodie 1;Pho 2",active,123B,0,
+16,thu123,vendor1,50000,"Coca 2;Pho 1",active,123C,0
+48,thu123,vendor1,50000,"Coca Cola;Pho 1",active,123C,0,
+20,thu123,lotumo123,285000,"Hoodie 1;Pho 2",active,123C,0,
+80,thu123,vendor1,50000,"Coca Cola;Pho 1",active,123B,0,
+86,thu123,lotumo123,550000,"Coca 2;Hoodie 2;Hoodie 1;Pho 2",delivered,123C,0,
