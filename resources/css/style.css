@@ -693,6 +693,9 @@ span {
 /* ----------Add to cart page------------ */
 /* ------------------------------------ */
 
+.cart-detail-page {
+  margin: 50px;
+}
 .cart-container {
   margin: 50px;
 }
@@ -713,6 +716,27 @@ td {
 
 .clear-button {
   padding: 8px 10px;
+}
+.order-button {
+  font-size: 100%;
+  margin-top: 10px;
+  border-radius: 5px;
+  width: 120px;
+  height: 40px;
+  background-color: rgb(107, 128, 244);
+  color: white;
+  padding: 5px 5px;
+}
+
+.home-button {
+  background-color: black;
+  font-size: 100%;
+  margin-top: 10px;
+  border-radius: 5px;
+  width: 120px;
+  height: 40px;
+  color: white;
+  padding: 5px 5px;
 }
 
 /* ------------------------------ */

@@ -1,7 +1,5 @@
-orderID,customerID,vendorID,products,status,hubID,shippingCost,totalAmount
-1,aaa123,null,null,active,123A,null,null
-0,null,null,null,active,123B,null,null
-12,null,null,null,active,123C,null,null
-13,null,null,null,active,123C,null,null
-
-
+orderID,username,vendorID,totalAmount,products,status,hubID,shippingCost
+1,aaa123,null,null,null,active,123A,null
+0,null,null,null,null,active,123B,null
+12,null,null,null,null,active,123C,null
+13,null,null,null,null,active,123C,null

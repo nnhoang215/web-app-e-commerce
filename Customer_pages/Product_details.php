@@ -48,8 +48,10 @@
                     <div class="col-product">
                     <img src="/img/'. $arr['imagefileName'] .'" alt="">
                     <p class="product-details-name">'. $arr['name'] .'</p>
+                    <p class="product-details-des"> ProductID: '. $arr['productID'] .'</p>
                     <p class="product-details-price">'. $arr['price'] .'</p>
                     <p class="product-details-des">'. $arr['description'] .'</p>
+                    <span>Vendor: </span><p class="product-details-des">'. $arr['vendorUsername'] .'</p>
                     <form method="get" action="Customer_cart.php">
                         <button onclick="SaveItem()" type="submit" name="act" > Add to cart </button>
                     </form>
@@ -73,9 +75,24 @@
 <script>
 function SaveItem() {
 
+var productID = "<?php Print($arr['productID']); ?>";
 var name =  "<?php Print($arr['name']); ?>";
 var price =  "<?php Print($arr['price']); ?>";
-localStorage.setItem(name, price);
+var vendor =  "<?php Print($arr['vendorUsername']); ?>";
+
+var productValue = []
+productValue.push(name,price,vendor);
+// console.log(productValue);
+
+localStorage.setItem(productID, JSON.stringify(productValue));
+
+// var value = ["aa","bb","cc"]
+// localStorage.setItem("testKey", JSON.stringify(value));
+// var test = JSON.parse(localStorage.getItem("testKey"));
+// alert(test);
+// localStorage.setItem(name, price);
+// localStorage.setItem(name, vendor);
+
 doShowAll();
 
 }

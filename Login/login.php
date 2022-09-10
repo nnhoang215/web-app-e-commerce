@@ -49,7 +49,7 @@
                                         "business-address" => $records[$i][9],
                                         "age" => $records[$i][10],
                                         "role" => $records[$i][11],
-                                        "distributionHub" => $records[$i][12],
+                                        "distribution_hub" => $records[$i][12],
                                         "imageURL" => $records[$i][13]                            
                                     );
                                     $_SESSION["current_user"] = $currentUser;
@@ -64,8 +64,6 @@
                                         print_r("Login error");
                                     }
                                     break 2;
-                                } else {
-                                    echo isset($_password) ? 'Wrong password or username' : '';
                                 }
 
                                 if(empty($_username)){
@@ -76,6 +74,11 @@
                                     exit();
                                 }
                             }
+                        }
+                    }
+                    if ($_username != ""){
+                        if (!isset($_SESSION['current_user'])) {
+                            echo '<script>alert("Wrong username or password");</script>';
                         }
                     }
 
@@ -105,7 +108,7 @@
                        <form action="login.php" method="post">
                        <div class="col">
                             <button class="btn" name="login-btn" value="true">
-                                <a href="#">Log in</a>
+                                <a>Log in</a>
                             </button>
                        </div>
                        </form>
