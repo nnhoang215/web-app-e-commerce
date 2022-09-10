@@ -20,7 +20,7 @@
                     <p>Here are the Current Products on your Store.</p>
                 </div>
                 <div class="btn">
-                    <a href="add_product.html">+ ADD MORE</a>
+                    <a href="add_product.php">+ ADD MORE</a>
                 </div>
             </div>
             <div class="container-products">
