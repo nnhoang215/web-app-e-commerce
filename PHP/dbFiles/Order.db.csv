@@ -1,0 +1,9 @@
+orderID,username,vendorID,totalAmount,products,status,hubID,shippingCost
+95,customer1,vendor12,185000,"Palmolive Shampoo;Pho 1",active,123C,0,
+34,customer1,vendor13,340000,"Pamolive Nature;Colgate",delivered,123B,0,
+57,customer1,vendor13,380000,"Pamolive Nature;Samsung remote controller;Gum",active,123A,0,
+84,customer2,vendor11,15000,"Coca Cola",active,123C,0,
+32,customer2,vendor13,340000,"Pamolive Nature;Colgate",delivered,123B,0,
+45,customer2,vendor11,390000,"Pamolive Nature;Cup;Samsung remote controller",active,123C,0,
+56,customer1,vendor11,375000,"Pamolive Nature;Samsung remote controller;Coca Cola",active,123A,0,
+80,customer1,vendor12,255000,"Cup;Colgate;Pho 1",active,123A,0,
