@@ -10,6 +10,7 @@
         </header>
         <section class="regis-form">
             <?php
+                error_reporting(0);
                 if(isset($_POST['submit'])){
                     $records = array();
                     $userName = $_POST['username'];
@@ -37,7 +38,8 @@
                             $data =$userName.",".$hashedPassword.",".$firstName.",".$lastName.",".$email.",".$gender.",".$DOB.",".$address
                             .","."null".","."null".","."null".","."customer".","."null".",".$path_filename_ext."\n";
 
-                        if(usernameValidate($userName)){
+                        if(usernameValidate($userName) && passwordValidation($password) && firstNameValidation($firstName) 
+                        && lastNameValidation($lastName) && emailValidation($email) && addressValidation($address)){
                             $csvFile = 'accounts.csv';
                             $fileHandle = fopen($csvFile, 'a+');
                             flock($fileHandle, LOCK_SH);
@@ -71,7 +73,11 @@
                             flock($fileHandle, LOCK_UN);
                             fclose($fileHandle);
                             unset($_SESSION["file_error"]);
-                        } 
+                        } else {
+                            echo '<script>alert("username: contains only letters (lower and upper case) and digits, has a length from 8 to 15 characters, unique
+                            password: contains at least one upper case letter, at least one lower case letter, at least one digit, at least one special letter in the set !@#$%^&*, NO other kind of characters, has a length from 8 to 20 characters
+                            Other fields are required and have a minimum length of 5 characters (except the profile picture, which is a file upload, and the shipper\'s distribution hub, which is a drop-down select)");</script>';
+                        }
                     } else {
                         echo '<script>alert("File size is too big or the image type is not jpeg/jpg/png");</script>';
                     }
@@ -94,7 +100,7 @@
                 }
 
                 function usernameValidate($userName){
-                    $pattern = '/^[A-Za-z0-9]{5,31}$/';
+                    $pattern = '/^[A-Za-z0-9]{8,15}$/';
 
                     if(preg_match($pattern,$userName)){
                         return true;
@@ -103,41 +109,46 @@
                 }
 
                 function passwordValidation($password){
-                    $pattern =  '/$\S*(?=\S{8,})(?=\S*[a-z])(?=\S*[A-Z])(?=\S*[\d])(?=\S*[\W])\S*$/';
+                    $pattern1 =  '/[a-z]/';
+                    $pattern2 =  '/[A-Z]/';
+                    $pattern3 =  '/[0-9]/';
+                    $pattern4 =  '/[\!\@\#\$\%\^\&\*]/';
 
-                    if(preg_match($pattern, $password)){
+                    if(preg_match($pattern1, $password)
+                    &&preg_match($pattern2, $password)
+                    &&preg_match($pattern3, $password)
+                    &&preg_match($pattern4, $password)
+                    && strlen($password) >= 8 && strlen($password) <= 20){
+                        return true;
+                    }
+                    return false;
+                }
+           
+
+                function firstNameValidation($name){
+                    if(strlen($name)>=5){
                         return true;
                     } 
                     return false;
                 }
-
-                function nameValidation($name){
-                    $pattern = "/^[A-Za-z]{1,}$/";
-
-                    if(preg_match($pattern, $name)){
+              
+                function lastNameValidation($name){
+                    if(strlen($name)>=5){
                         return true;
                     } 
                     return false;
                 }
-
+               
                 function emailValidation($email){
                     if(filter_var($email, FILTER_VALIDATE_EMAIL)){
                         return true;
                     }
                     return false;
                 }
+               
 
                 function addressValidation($address){
-                    $pattern = "/^\\d+ [a-zA-Z ]+, \\d+ [a-zA-Z ]+, [a-zA-Z ]+$/";
-
-                    if(preg_match($pattern, $address)){
-                        return true;
-                    } 
-                    return false;
-                }
-
-                function radioValidation($radio){
-                    if($radio == "Man" || $radio == "Woman"){
+                    if(strlen($address)>=5){
                         return true;
                     }
                     return false;
@@ -186,7 +197,7 @@
                         </div>
                         <div class="col">
                             <label for="address">Address</label>
-                            <input type="text" name="address" id="address" required>
+                            <input type="text" name="address" id="address" placeholder="00 Street-District-City" required>
                         </div>
                     </div>
                     <div class="row">

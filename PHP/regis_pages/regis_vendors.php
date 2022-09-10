@@ -33,8 +33,8 @@
                         $path_filename_ext = $target_dir.$filename.".".$ext;
                         $information = $userName.",".$hashed_password.","."null".","."null".","."null".","."null".","."null".","."null"
                         .",".$businessName.",".$businessAddress.","."null".","."vendor".","."null".",".$path_filename_ext."\n";
-
-                        if(usernameValidate($userName)){
+                        
+                        if(usernameValidate($userName) && passwordValidation($password) && addressValidation($businessAddress)){
                             $csvFile = 'accounts.csv';
                             $file_handle = fopen($csvFile, 'a+');
                             flock($file_handle, LOCK_SH);
@@ -52,12 +52,15 @@
                             fclose($_file_handle);
                             $userNameList = array();
                             $businessAddressList = array();
+                            $bussinessNameList1 = [];
                             for($i = 1; $i < count($records); $i++){    
                                 array_push($userNameList, $records[$i][0]);
+                                array_push($bussinessNameList1, $records[$i][8]);
                                 array_push($businessAddressList, $records[$i][9]);   
                             }
                             
-                            if(isInArray($userNameList, validate($userName)) == true || isInArray($businessAddressList, validate($businessAddress)) == true){
+                            if(isInArray($userNameList, validate($userName)) == true || isInArray($businessAddressList, validate($businessAddress)) == true
+                                        || isInArray($bussinessNameList1, validate($businessName))){
                                 echo '<script>alert("Username or business address is already registered");</script>';
                             } else {
                                 fwrite($file_handle, $information);
@@ -97,11 +100,45 @@
                 }
 
                 function usernameValidate($userName){
-                    $pattern = '/^[A-Za-z0-9]{5,31}$/';
+                    $pattern = '/^[A-Za-z0-9]{8,15}$/';
 
                     if(preg_match($pattern,$userName)){
                         return true;
                     }
+                    return false;
+                }
+    
+
+                function passwordValidation($password){
+                    $pattern1 =  '/[a-z]/';
+                    $pattern2 =  '/[A-Z]/';
+                    $pattern3 =  '/[0-9]/';
+                    $pattern4 =  '/[\!\@\#\$\%\^\&\*]/';
+
+                    if(preg_match($pattern1, $password)
+                    &&preg_match($pattern2, $password)
+                    &&preg_match($pattern3, $password)
+                    &&preg_match($pattern4, $password)
+                    && strlen($password) >= 8 && strlen($password) <= 20){
+                        return true;
+                    }
+                    return false;
+                }
+           
+
+                function nameValidation($name){
+                    if(strlen($name)>=5){
+                        return true;
+                    } 
+                    return false;
+                }
+              
+               
+
+                function addressValidation($address){
+                    if(strlen($address)>=5){
+                        return true;
+                    } 
                     return false;
                 }
             ?>
@@ -110,27 +147,27 @@
                     <div class="row">
                         <div class="col">
                             <label for="username">User name</label>
-                            <input type="text" name="username" id="username">
+                            <input type="text" name="username" id="username" required>
                         </div>
                         <div class="col">
                             <label for="password">New Password</label>
-                            <input type="password" name="password" id="password">
+                            <input type="password" name="password" id="password" required>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col">
                             <label for="business-name">Business Name</label>
-                            <input type="text" name="business-name" id="business-name" >
+                            <input type="text" name="business-name" id="business-name" required>
                         </div>
                         <div class="col">
                             <label for="business-address">Business Address</label>
-                            <input type="text" name="business-address" id="business-address">
+                            <input type="text" name="business-address" id="business-address" placeholder="00 Street-District-City" required>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col">
                             <label for="profile_image">Profile Image</label>
-                            <input id="profile_image" type="file" accept="image/*" name="profile_image">
+                            <input id="profile_image" type="file" accept="image/*" name="profile_image" required>
                         </div>
                     </div>
                     <div class="submit-container">

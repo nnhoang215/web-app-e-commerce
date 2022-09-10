@@ -34,7 +34,8 @@
                             $information = $userName.",".$hashed_password.",".$firstName.",".$lastName.","."null".","."null".","."null".","."null"
                             .","."null".","."null".",".$age.","."shipper".",".$distributionHub.",".$path_filename_ext."\n";
         
-                            if(usernameValidate($userName)){
+                            if(usernameValidate($userName) && passwordValidation($password) && firstNameValidation($firstName)
+                                && lastNameValidation($lastName)){
                                 $csvFile = 'accounts.csv';
                                 $file_handle = fopen($csvFile, 'a+');
                                 flock($file_handle, LOCK_SH);
@@ -96,11 +97,58 @@
                 }
 
                 function usernameValidate($userName){
-                    $pattern = '/^[A-Za-z0-9]{5,31}$/';
+                    $pattern = '/^[A-Za-z0-9]{8,15}$/';
 
                     if(preg_match($pattern,$userName)){
                         return true;
                     }
+                    return false;
+                }
+    
+
+                function passwordValidation($password){
+                    $pattern1 =  '/[a-z]/';
+                    $pattern2 =  '/[A-Z]/';
+                    $pattern3 =  '/[0-9]/';
+                    $pattern4 =  '/[\!\@\#\$\%\^\&\*]/';
+
+                    if(preg_match($pattern1, $password)
+                    &&preg_match($pattern2, $password)
+                    &&preg_match($pattern3, $password)
+                    &&preg_match($pattern4, $password)
+                    && strlen($password) >= 8 && strlen($password) <= 20){
+                        return true;
+                    }
+                    return false;
+                }
+           
+
+                function firstNameValidation($name){
+                    if(strlen($name)>=5){
+                        return true;
+                    } 
+                    return false;
+                }
+              
+                function lastNameValidation($name){
+                    if(strlen($name)>=5){
+                        return true;
+                    } 
+                    return false;
+                }
+               
+                function emailValidation($email){
+                    if(filter_var($email, FILTER_VALIDATE_EMAIL)){
+                        return true;
+                    }
+                    return false;
+                }
+               
+
+                function addressValidation($address){
+                    if(strlen($address)>=5){
+                        return true;
+                    } 
                     return false;
                 }
             ?>

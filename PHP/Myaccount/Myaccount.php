@@ -160,9 +160,7 @@
                         <input style="width: 100px; font-size: 80%; margin-left:10px;" type="submit" name="submit" value="Save Change" id="submit">
                     </div>
                     </div>
-                    <div class="btn">
-                        <button name="log_out" value="true">Log Out</button>
-                    </div>
+                        <button class="btn" style="color: white;" name="log_out" value="true">Log Out</button>
                     </form>
         </section>
         <?php require '../php_scripts/general_footer.php'?>
