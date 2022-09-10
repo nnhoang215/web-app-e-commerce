@@ -38,11 +38,11 @@
                             .","."null".","."null".","."null".","."customer".","."null".",".$path_filename_ext."\n";
 
                         if(usernameValidate($userName)){
-                            $csvFile = 'Customer.csv';
+                            $csvFile = 'accounts.csv';
                             $fileHandle = fopen($csvFile, 'a+');
                             flock($fileHandle, LOCK_SH);
                             
-                            $file = "Customer.csv";
+                            $file = "accounts.csv";
                             $_fileHandle = fopen($file, 'r');
                             flock($_fileHandle, LOCK_SH);
                             while ($line = fgets($_fileHandle)){

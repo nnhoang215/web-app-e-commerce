@@ -23,7 +23,7 @@
             <div class="container">
                 <?php
                     $_avatarLink = "";
-                    $file = "../regis_pages/Customer.csv";
+                    $file = "../regis_pages/accounts.csv";
                     $records =[];
                     $_file_handle = fopen($file, 'r');
                     flock($_file_handle, LOCK_SH);
@@ -55,7 +55,7 @@
                             $ext = $path['extension'];
                             $temp_name = $_FILES['profile_image']['tmp_name'];
                             $path_filename_ext = $target_dir.$filename.".".$ext;
-                            $csvFile = "../regis_pages/Customer.csv";
+                            $csvFile = "../regis_pages/accounts.csv";
                             $file_handle = fopen($csvFile, "w");
                             flock($file_handle, LOCK_SH);
                             

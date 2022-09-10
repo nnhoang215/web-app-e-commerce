@@ -58,7 +58,7 @@
                     $_username = validate($_POST['username']);
                     $_password = validate($_POST['password']);
                     $_hashed_password = password_hash($_password, PASSWORD_DEFAULT);
-                    $file = "./PHP/regis_pages/Customer.csv";
+                    $file = "./PHP/regis_pages/accounts.csv";
                     $file_handle = fopen($file, 'r');
                     flock($file_handle, LOCK_SH);
                     while ($line = fgets($file_handle)){

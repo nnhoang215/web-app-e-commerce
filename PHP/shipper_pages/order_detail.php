@@ -21,8 +21,8 @@
                 $arr = unserialize(urldecode($strenc2));
                 $_SESSION['current_order'] = $arr;
 
-                ### Read file Customer.csv ######
-                $file = "../regis_pages/Customer.csv";
+                ### Read file accounts.csv ######
+                $file = "../regis_pages/accounts.csv";
                 $fileHandle = fopen($file, 'r');
                 flock($fileHandle, LOCK_SH);
                 while($line = fgets($fileHandle)){
