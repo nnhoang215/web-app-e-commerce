@@ -34,7 +34,8 @@
                             $information = $userName.",".$hashed_password.",".$firstName.",".$lastName.","."null".","."null".","."null".","."null"
                             .","."null".","."null".",".$age.","."shipper".",".$distributionHub.",".$path_filename_ext."\n";
         
-                            if(usernameValidate($userName)){
+                            if(usernameValidate($userName) == true && passwordValidation($password) == true  && firstNameValidation($firstName) == true 
+                            && lastNameValidation($lastName) == true  && ageValidation($age) == true ){
                                 $csvFile = 'Customer.csv';
                                 $file_handle = fopen($csvFile, 'a+');
                                 flock($file_handle, LOCK_SH);
@@ -96,11 +97,46 @@
                 }
 
                 function usernameValidate($userName){
-                    $pattern = '/^[A-Za-z0-9]{5,31}$/';
+                    $pattern = '/^[A-Za-z0-9]{8,15}$/';
 
                     if(preg_match($pattern,$userName)){
                         return true;
                     }
+                    return false;
+                }
+
+                function passwordValidation($password){
+                    $pattern1 =  '/[a-z]/';
+                    $pattern2 =  '/[A-Z]/';
+                    $pattern3 =  '/[0-9]/';
+                    $pattern4 =  '/[\!\@\#\$\%\^\&\*]/';
+
+                    if(preg_match($pattern1, $password)
+                    &&preg_match($pattern2, $password)
+                    &&preg_match($pattern3, $password)
+                    &&preg_match($pattern4, $password)
+                    && strlen($password) >= 8 && strlen($password) <= 20){
+                        return true;
+                    }
+                    return false;
+                }
+
+                function lastNameValidation($lastName){
+                    if(strlen($lastName)>=5){
+                        return true;
+                    } 
+                    return false;
+                }
+                function firstNameValidation($firstName){
+                    if(strlen($firstName)>=5){
+                        return true;
+                    } 
+                    return false;
+                }
+                function ageValidation($age){
+                    if(strlen($age)>=5){
+                        return true;
+                    } 
                     return false;
                 }
             ?>
@@ -109,27 +145,32 @@
                     <div class="row">
                         <div class="col">
                             <label for="username">User name</label>
-                            <input type="text" name="username" id="username">
+                            <input type="text" name="username" id="username" onkeyup="validateName()">
+                            <span id="nameError"></span>
                         </div>
                         <div class="col">
                             <label for="password">New Password</label>
-                            <input type="password" name="password" id="password">
+                            <input type="password" name="password" id="password" onkeyup="validatePass()">
+                            <span id="passError"></span>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col">
                             <label for="first-name">First Name:</label>
-                            <input type="text" name="first-name" id="first-name" required>
+                            <input type="text" name="first-name" id="first-name" onkeyup="validateFirstName()" required>
+                            <span id="fnameError"></span>
                         </div>
                         <div class="col">
                             <label for="last-name">Last Name: </label>
-                            <input type="text" name="last-name" id="last-name" required>
+                            <input type="text" name="last-name" id="last-name" onkeyup="validateLastName()" required>
+                            <span id="lnameError"></span>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col">
                             <label for="age">Age</label>
-                            <input type="text" name="age" id="age" >
+                            <input type="text" name="age" id="age" onkeyup="validateAge()">
+                            <span id="ageError"></span>
                         </div>
                         <div class="col">
                             <label for="distribution-hub">Distribution Hub</label>
@@ -163,10 +204,10 @@
         </section>
         <footer>
             <ul>
-                <li><a href="../sub-pages/About.html">About</a></li>
-                <li><a href="../sub-pages/Copyright.html">Copyright</a></li>
-                <li><a href="../sub-pages/Policy.html">Policy</a></li>
-                <li><a href="../sub-pages/Helpslink.html">Helps link</a></li>   
+                <li><a href="./sub-pages/About.php">About</a></li>
+                <li><a href="./sub-pages/Copyright.php">Copyright</a></li>
+                <li><a href="./sub-pages/Policy.php">Policy</a></li>
+                <li><a href="./sub-pages/Helpslink.php">Helps link</a></li> 
             </ul>
         </footer>
         <script src="../resources/js/preview_img.js"></script>

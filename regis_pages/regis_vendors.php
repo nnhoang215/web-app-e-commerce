@@ -34,7 +34,8 @@
                         $information = $userName.",".$hashed_password.","."null".","."null".","."null".","."null".","."null".","."null"
                         .",".$businessName.",".$businessAddress.","."null".","."vendor".","."null".",".$path_filename_ext."\n";
 
-                        if(usernameValidate($userName)){
+                        if(usernameValidate($userName) == true && passwordValidation($password) == true && businessNameValidation($businessName) == true
+                        && businessAddressValidation($businessAddress) == true){
                             $csvFile = 'Customer.csv';
                             $file_handle = fopen($csvFile, 'a+');
                             flock($file_handle, LOCK_SH);
@@ -52,14 +53,17 @@
                             fclose($_file_handle);
                             $userNameList = array();
                             $businessAddressList = array();
+                            $businessNameList = array();
                             for($i = 1; $i < count($records); $i++){    
                                 array_push($userNameList, $records[$i][0]);
                                 array_push($businessAddressList, $records[$i][9]);   
+                                array_push($businessName, $records[$i][8]);  
                             }
                             
-                            if(isInArray($userNameList, validate($userName)) == true || isInArray($businessAddressList, validate($businessAddress)) == true){
+                            if(isInArray($userNameList, validate($userName)) == true || isInArray($businessAddressList, validate($businessAddress)) == true
+                                || isInArray($businessNameList, validate($businessName)) == true){
                                 // header("Location: regis_vendors.php");
-                                echo '<script>alert("Username or business address is already registered");</script>';
+                                echo '<script>alert("Username or business address or business name is already registered");</script>';
                             } else {
                                 fwrite($file_handle, $information);
                                 move_uploaded_file($temp_name,$path_filename_ext);
@@ -98,34 +102,71 @@
                 }
 
                 function usernameValidate($userName){
-                    $pattern = '/^[A-Za-z0-9]{5,31}$/';
+                    $pattern = '/^[A-Za-z0-9]{8,15}$/';
 
                     if(preg_match($pattern,$userName)){
                         return true;
                     }
                     return false;
                 }
+
+                function passwordValidation($password){
+                    $pattern1 =  '/[a-z]/';
+                    $pattern2 =  '/[A-Z]/';
+                    $pattern3 =  '/[0-9]/';
+                    $pattern4 =  '/[\!\@\#\$\%\^\&\*]/';
+
+                    if(preg_match($pattern1, $password)
+                    &&preg_match($pattern2, $password)
+                    &&preg_match($pattern3, $password)
+                    &&preg_match($pattern4, $password)
+                    && strlen($password) >= 8 && strlen($password) <= 20){
+                        return true;
+                    }
+                    return false;
+                }
+
+
+
+                function businessNameValidation($businessName){
+                    if(strlen($businessName)>=5){
+                        return true;
+                    } 
+                    return false;
+                }
+
+                function businessAddressValidation($businessAddress){
+                    if(strlen($businessAddress)>=5){
+                        return true;
+                    } 
+                    return false;
+                }
+            
             ?>
             <div class="container">
                 <form action="regis_vendors.php" method="post" enctype="multipart/form-data">
                     <div class="row">
                         <div class="col">
                             <label for="username">User name</label>
-                            <input type="text" name="username" id="username">
+                            <input type="text" name="username" id="username" onkeyup="validateName()">
+                            <span id="nameError"></span>
                         </div>
                         <div class="col">
                             <label for="password">New Password</label>
-                            <input type="password" name="password" id="password">
+                            <input type="password" name="password" id="password" onkeyup = 'validatePass()'>
+                            <span id="passError"></span>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col">
                             <label for="business-name">Business Name</label>
-                            <input type="text" name="business-name" id="business-name" >
+                            <input type="text" name="business-name" id="business-name"  onkeyup="validateBusinessName()" >
+                            <span id="bnameError"></span>
                         </div>
                         <div class="col">
                             <label for="business-address">Business Address</label>
-                            <input type="text" name="business-address" id="business-address">
+                            <input type="text" name="business-address" id="business-address" onkeyup="validateAddress()" placeholder="00 Street-District-City">
+                            <span id="addressError"></span>
                         </div>
                     </div>
                     <div class="row">
@@ -135,7 +176,7 @@
                         </div>
                     </div>
                     <div class="submit-container">
-                        <input type="submit" id="submit" name="submit">
+                        <input type="submit" id="submit" name="submit" >
                     </div>
                 </form>
             </div>
@@ -151,10 +192,10 @@
         </section>
         <footer>
             <ul>
-                <li><a href="../sub-pages/About.html">About</a></li>
-                <li><a href="../sub-pages/Copyright.html">Copyright</a></li>
-                <li><a href="../sub-pages/Policy.html">Policy</a></li>
-                <li><a href="../sub-pages/Helpslink.html">Helps link</a></li>   
+                <li><a href="./sub-pages/About.php">About</a></li>
+                <li><a href="./sub-pages/Copyright.php">Copyright</a></li>
+                <li><a href="./sub-pages/Policy.php">Policy</a></li>
+                <li><a href="./sub-pages/Helpslink.php">Helps link</a></li> 
             </ul>
         </footer>
         <script src="../resources/js/preview_img.js"></script>

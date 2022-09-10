@@ -116,7 +116,7 @@ function validateAddress(){
 }
 
 
-function validate(){
+function validateRadio(){
     var selectedRadio = document.querySelector('input[name="gender"]:checked');
     if (selectedRadio == null) {
         radioError.innerHTML = 'Please select one';
@@ -133,19 +133,19 @@ function validate(){
 
 }
 
-function validateSellerEmail(){
-    var email = document.getElementById('seller-email').value;
-    if (email.length == 0 || email == null) {
-        emailError.innerHTML = 'Email is required';
-        return false;
-    }
-    if (email.length < 5) {
-        emailError.innerHTML = 'Email is too short';
-        return false;
-    }
-    emailError.innerHTML = '';
-    return true;
-}
+// function validateSellerEmail(){
+//     var email = document.getElementById('seller-email').value;
+//     if (email.length == 0 || email == null) {
+//         emailError.innerHTML = 'Email is required';
+//         return false;
+//     }
+//     if (email.length < 5) {
+//         emailError.innerHTML = 'Email is too short';
+//         return false;
+//     }
+//     emailError.innerHTML = '';
+//     return true;
+// }
 
 function validateProductName(){
     var pName = document.getElementById('product-name').value;
@@ -200,5 +200,33 @@ function validatepProductTag(){
         return false;
     }
     tagError.innerHTML = '';
+    return true;
+}
+
+var bnameError = document.getElementById('bnameError');
+
+function validateBusinessName(){
+    var bname =document.getElementById('business-name').value;
+    if (bname.length == 0 || bname == null) {
+        bnameError.innerHTML = 'Business name is required';
+        return false;
+    }
+    if (bname.length < 5) {
+        bnameError.innerHTML = 'Business name is too short';
+        return false;
+    }
+    bnameError.innerHTML = '';
+    return true;
+}
+
+var ageError = document.getElementById('ageError')
+
+function validateAge(){
+    var age = document.getElementById('age').value;
+    if (age.length == 0 || age == null) {
+        ageError.innerHTML = 'Age is required';
+        return false;
+    }
+    ageError.innerHTML = '';
     return true;
 }

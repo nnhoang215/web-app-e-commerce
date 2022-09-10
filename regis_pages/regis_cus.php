@@ -10,6 +10,7 @@
         </header>
         <section class="regis-form">
             <?php
+            // error_reporting(0);
                 if(isset($_POST['submit'])){
                     $records = array();
                     $userName = $_POST['username'];
@@ -36,8 +37,17 @@
                             $path_filename_ext = $target_dir.$filename.".".$ext;
                             $data =$userName.",".$hashedPassword.",".$firstName.",".$lastName.",".$email.",".$gender.",".$DOB.",".$address
                             .","."null".","."null".","."null".","."customer".","."null".",".$path_filename_ext."\n";
-
-                        if(usernameValidate($userName)){
+                            echo usernameValidate($username);
+                            echo passwordValidation($password);
+                            echo firstNameValidation($firstName);
+                            echo lastNameValidation($lastName);
+                            echo emailValidation($email);
+                            echo addressValidation($address);
+                            echo radioValidation($gender);
+                        if(usernameValidate($userName)==true && passwordValidation($password)==true
+                        && firstNameValidation($firstName) == true && lastNameValidation($lastName)==true && emailValidation($email)==true 
+                        ){
+                            
                             $csvFile = 'Customer.csv';
                             $fileHandle = fopen($csvFile, 'a+');
                             flock($fileHandle, LOCK_SH);
@@ -94,7 +104,7 @@
                 }
 
                 function usernameValidate($userName){
-                    $pattern = '/^[A-Za-z0-9]{5,31}$/';
+                    $pattern = '/^[A-Za-z0-9]{8,15}$/';
 
                     if(preg_match($pattern,$userName)){
                         return true;
@@ -103,18 +113,29 @@
                 }
 
                 function passwordValidation($password){
-                    $pattern =  '/$\S*(?=\S{8,})(?=\S*[a-z])(?=\S*[A-Z])(?=\S*[\d])(?=\S*[\W])\S*$/';
+                    $pattern1 =  '/[a-z]/';
+                    $pattern2 =  '/[A-Z]/';
+                    $pattern3 =  '/[0-9]/';
+                    $pattern4 =  '/[\!\@\#\$\%\^\&\*]/';
 
-                    if(preg_match($pattern, $password)){
+                    if(preg_match($pattern1, $password)
+                    &&preg_match($pattern2, $password)
+                    &&preg_match($pattern3, $password)
+                    &&preg_match($pattern4, $password)
+                    && strlen($password) >= 8 && strlen($password) <= 20){
+                        return true;
+                    }
+                    return false;
+                }
+
+                function firstNameValidation($firstName){
+                    if(strlen($firstName)>=5){
                         return true;
                     } 
                     return false;
                 }
-
-                function nameValidation($name){
-                    $pattern = "/^[A-Za-z]{1,}$/";
-
-                    if(preg_match($pattern, $name)){
+                function lastNameValidation($lastName){
+                    if(strlen($lastName)>=5){
                         return true;
                     } 
                     return false;
@@ -128,9 +149,7 @@
                 }
 
                 function addressValidation($address){
-                    $pattern = "/^\\d+ [a-zA-Z ]+, \\d+ [a-zA-Z ]+, [a-zA-Z ]+$/";
-
-                    if(preg_match($pattern, $address)){
+                    if(strlen($address)>=5){
                         return true;
                     } 
                     return false;
@@ -147,29 +166,34 @@
                 <form action="regis_cus.php" method="post" enctype="multipart/form-data">
                     <div class="row">
                         <div class="col">
-                            <label for="username">User name</label>
-                            <input type="text" name="username" id="username" required>
+                            <label for="name">User name</label>
+                            <input type="text" name="name" id="name" onkeyup="validateUsername()" required>
+                            <span id="nameError"></span>
 
                         </div>
                         <div class="col">
                             <label for="password">New Password</label>
-                            <input type="password" name="password" id="password" required>
+                            <input type="password" name="password" id="password" onkeyup="validatePassword()" required>
+                            <span id="passError"></span>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col">
                             <label for="firstname">First Name</label>
-                            <input type="text" name="firstname" id="firstname" required >
+                            <input type="text" name="firstname" id="firstname" onkeyup="validateFName()" required >
+                            <span id="fnameError"></span>
                         </div>
                         <div class="col">
                             <label for="lastname">Last Name</label>
-                            <input type="text" name="lastname" id="lastname" required>
+                            <input type="text" name="lastname" id="lastname" onkeyup="validateLName()" required>
+                            <span id="lnameError"></span>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col">
                             <label for="email">Email</label>
-                            <input type="email" name="email" id="email" required>
+                            <input type="email" name="email" id="email" required onkeyup="validateEmail()">
+                            <span id="emailError"></span>
                         </div>
                         <div class="col" id="radio">
                             <label for="gender">Gender: </label>
@@ -177,16 +201,19 @@
                             <label for="male">Male</label>
                             <input type="radio" name="gender" id="female" value ="Female">
                             <label for="female">Female</label>
+                            <span id="radioError"></span>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col">
                             <label for="DOB">Date Of Birth</label>
                             <input type="date" name="DOB" id="DOB" required>
+                            
                         </div>
                         <div class="col">
                             <label for="address">Address</label>
-                            <input type="text" name="address" id="address" required>
+                            <input type="text" name="address" id="address" placeholder="00 Street-District-City" onkeyup="validateAddress()" required>
+                            <span id="addressError"></span>
                         </div>
                     </div>
                     <div class="row">
@@ -196,7 +223,7 @@
                         </div>
                     </div>
                     <div class="submit-container">
-                        <input type="submit" id="submit" name="submit">
+                        <input type="submit" id="submit" name="submit" onclick="validateRadio()">
                     </div>
                 </form>
             </div>
@@ -212,10 +239,10 @@
         </section>
         <footer>
             <ul>
-                <li><a href="../sub-pages/About.html">About</a></li>
-                <li><a href="../sub-pages/Copyright.html">Copyright</a></li>
-                <li><a href="../sub-pages/Policy.html">Policy</a></li>
-                <li><a href="../sub-pages/Helpslink.html">Helps link</a></li>   
+                <li><a href="./sub-pages/About.php">About</a></li>
+                <li><a href="./sub-pages/Copyright.php">Copyright</a></li>
+                <li><a href="./sub-pages/Policy.php">Policy</a></li>
+                <li><a href="./sub-pages/Helpslink.php">Helps link</a></li> 
             </ul>
         </footer>
         <script src="../resources/js/preview_img.js"></script>
