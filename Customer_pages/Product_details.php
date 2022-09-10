@@ -81,6 +81,6 @@ function SaveItem() {
 
     productValue.push(name,price,vendor);
     localStorage.setItem(productID, JSON.stringify(productValue));
-    doShowAll();
+
 }
 </script>

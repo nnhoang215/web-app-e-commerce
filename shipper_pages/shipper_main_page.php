@@ -48,8 +48,8 @@
 
                   $orderInCurHubList = [];
                   for($i = 0; $i < count($orderList); $i++){
-                      if($curDistributionHubID == $orderList[$i][5]){
-                          if($orderList[$i][4] == "active" || $orderList[$i][4] == "delivered"){
+                      if($curDistributionHubID == $orderList[$i][6]){
+                          if($orderList[$i][5] == "active"){
                               array_push($orderInCurHubList, $orderList[$i]);
                           }
                       }
@@ -73,8 +73,8 @@
                         <a href="./order_detail.php?data=' . $strenc .' ">
                           <div class="field">'.$order[0].'</div>
                           <div class="field">'.$order[1].'</div>
-                          <div class="field">'.$order[7].'</div>
-                          <div class="field">'.$order[4].'</div>
+                          <div class="field">'.$order[3].'</div>
+                          <div class="field">'.$order[5].'</div>
                         </a>
                       </div>';
                   }
