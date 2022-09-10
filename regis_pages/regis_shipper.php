@@ -2,9 +2,7 @@
 
 <html>
     <head>
-        <title>Shoppee web</title>
-        <link rel="stylesheet" href="../resources/css/style.css">
-        <link rel="stylesheet" href="../resources/css/queries.css">
+        <?php require '../php_scripts/general_head.php'?>
     </head>
     <body>
         <header>
