@@ -166,14 +166,8 @@
                     </div>
                     </form>
         </section>
-        <footer>
-            <ul>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Copyright</a></li>
-                <li><a href="#">Policy</a></li>
-                <li><a href="#">Helps link</a></li>   
-            </ul>
-        </footer>
+        <?php require '../php_scripts/general_footer.php'?>
+
     </body>
     <script src="../resources/js/preview_img.js"></script>
 </html>
