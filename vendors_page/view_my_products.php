@@ -64,12 +64,10 @@
             ?>
             <script>
             console.log(<?= json_encode($_SESSION['data']); ?>);
-
             </script>
-                <div class="btn" id="view-more">
-                    <a href="">View more</a>
-                </div>
+                
         </section>
+        <div class="btn" id="view-more"><a href="">View more</a> </div>
         <footer>
             <ul>
                 <li><a href="#">About</a></li>
@@ -79,4 +77,3 @@
             </ul>
         </footer>
     </body>
-</html>
