@@ -1,10 +1,12 @@
 productID,name,type,description,price,imagefileName,vendorUsername
-P1,Coca Cola,Drink,"Coca-Cola is the world�E��Es favorite soft drink and has been enjoyed since 1886. Whether you want a 150ml mini can or a large 1.5 liter bottle for sharing, you can find Coca-Cola Classic in a variety of sizes to suit every lifestyle and occasion.",15000,coke.jpeg,lotumo123
+P1,Coca Cola,Drink,"Coca-Cola is the world favorite soft drink and has been enjoyed since 1886. Whether you want a 150ml mini can or a large 1.5 liter bottle for sharing, you can find Coca-Cola Classic in a variety of sizes to suit every lifestyle and occasion.",15000,coke.jpeg,lotumo123
 P2,Pho 1,Food,AUTHENTIC FLAVOR: Our recipe is authentically designed to give you the best taste possible!,35000,pho.jpeg,vendor1
 P3,Hoodie 1,Clothes,Exceptionally soft cotton/polyester blend resists shrinking and pilling. Fabric: 50% Cotton/50% polyester; oxford: 90% cotton/10% polyester.,250000,hoodie.jpeg,lotumo123
-P1,Coca 2,Drink,"Coca-Cola is the world�E��Es favorite soft drink and has been enjoyed since 1886. Whether you want a 150ml mini can or a large 1.5 liter bottle for sharing, you can find Coca-Cola Classic in a variety of sizes to suit every lifestyle and occasion.",15000,coke.jpeg,lotumo123
-P2,Pho 2,Food,AUTHENTIC FLAVOR: Our recipe is authentically designed to give you the best taste possible!,35000,pho.jpeg,lotumo123
-P3,Hoodie 2,Clothes,Exceptionally soft cotton/polyester blend resists shrinking and pilling. Fabric: 50% Cotton/50% polyester; oxford: 90% cotton/10% polyester.,250000,hoodie.jpeg,lotumo123
-P1,Cola 3,Drink,"Coca-Cola is the world�E��Es favorite soft drink and has been enjoyed since 1886. Whether you want a 150ml mini can or a large 1.5 liter bottle for sharing, you can find Coca-Cola Classic in a variety of sizes to suit every lifestyle and occasion.",15000,coke.jpeg,lotumo123
-P2,Pho 3,Food,AUTHENTIC FLAVOR: Our recipe is authentically designed to give you the best taste possible!,35000,pho.jpeg,vendor1
-123,adsfasdf,hasdhfashdfh,fasdfasdf,30000,../img/Screen Shot 2022-08-09 at 10.23.21.png,vendor1
+P4,Coca 2,Drink,"Coca-Cola is the world favorite soft drink and has been enjoyed since 1886. Whether you want a 150ml mini can or a large 1.5 liter bottle for sharing, you can find Coca-Cola Classic in a variety of sizes to suit every lifestyle and occasion.",15000,coke.jpeg,lotumo123
+P5,Pho 2,Food,AUTHENTIC FLAVOR: Our recipe is authentically designed to give you the best taste possible!,35000,pho.jpeg,lotumo123
+P6,Hoodie 2,Clothes,Exceptionally soft cotton/polyester blend resists shrinking and pilling. Fabric: 50% Cotton/50% polyester; oxford: 90% cotton/10% polyester.,250000,hoodie.jpeg,lotumo123
+P7,Cola 3,Drink,"Coca-Cola is the world favorite soft drink and has been enjoyed since 1886. Whether you want a 150ml mini can or a large 1.5 liter bottle for sharing, you can find Coca-Cola Classic in a variety of sizes to suit every lifestyle and occasion.",15000,coke.jpeg,lotumo123
+P8,Pho 3,Food,AUTHENTIC FLAVOR: Our recipe is authentically designed to give you the best taste possible!,35000,pho.jpeg,vendor1
+P12,Palmolive Shampoo,Beauty,Tính năng nổi bật của Bộ 2 Dầu gội Palmolive kèm dầu xả 2 trong 1 chiết xuất thiên nhiên 600ml,150000,../img/Screen Shot 2022-09-10 at 18.59.36.png,sendofarm
+P13,Pamolive Nature,Beauty,Với công nghệ chăm sóc tóc tiên tiến kết hợp với thành phần dưỡng chất thiên nhiên dầu gội Palmolive có chứa thành phần dầu xả là sản phẩm tuyệt vời cho mọi nhu cầu của mái tóc.,150000,../img/Screen Shot 2022-09-10 at 18.56.54.png,sendofarm
+P15,Colgate,Beauty,Giới thiệu sản phẩm Bộ 6 kem đánh răng làm trắng sáng Colgate Optic White từ khoáng núi lửa Hàn Quốc 100g,190000,../img/Screen Shot 2022-09-10 at 18.57.04.png,sendofarm

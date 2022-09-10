@@ -88,8 +88,8 @@ session_start();
                 }
                 $_SESSION['data'] = $data;
                 $i = 1;
+                echo '<div class="row-products">';
                 foreach ($data as $item) {
-                    if($i % 3 == 1) {echo '<div class="row-products">';}
                     $str = serialize($item);
                     $strenc = urlencode($str);
 
@@ -103,10 +103,9 @@ session_start();
                             </a>
                         </div>
                         ';
-                        if($i % 3 == 0) {echo '</div>'; } 
                         ++$i;
                 }
-                
+                echo '</div>'; 
                 // Close file
                 fclose($file);
                 ?>

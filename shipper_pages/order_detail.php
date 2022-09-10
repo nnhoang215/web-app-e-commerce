@@ -51,19 +51,19 @@
                             </div>
                         <div class="row">
                             <div class="col">Vendor ID: '.$arr[2].' </div>
-                            <div class="col">Distrionbution Hub ID: '.$arr[5].' </div>
+                            <div class="col">Distrionbution Hub ID: '.$arr[6].' </div>
                         </div>
                         <div class="row">
-                            <div class="col">Products: '.$arr[3].' </div>
-                            <div class="col">Shipping Cost: '.$arr[6].' </div>
+                            <div class="col">Products: '.$arr[4].' </div>
+                            <div class="col">Shipping Cost: '.$arr[7].' </div>
                         </div>
                         <div class="row">
-                            <div class="col">Total Amount: '.$arr[7].' </div>
+                            <div class="col">Total Amount: '.$arr[3].' </div>
                             <div class="col"> 
                             <form action="order_detail.php" method="post">
                                 <label for="order-status">Status</label>
                                 <select name="order-status" id="order-status">
-                                    <option value="active">'.$arr[4].'</option>
+                                    <option value="active">'.$arr[5].'</option>
                                     <option value="canceled">canceled</option>
                                     <option value="delivered">delivered</option>
                                 </select>
@@ -92,7 +92,7 @@
                 fclose($fileOrderHandle);
                 for($i = 0; $i < count($orderList); $i++){
                     if($orderList[$i][0] == $newArr[0]){
-                        $orderList[$i][4] = $newStatus;
+                        $orderList[$i][5] = $newStatus;
                     }
                 }
                 $orderWrite = fopen($fileOrder, 'w');

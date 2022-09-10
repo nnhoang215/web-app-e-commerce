@@ -35,17 +35,16 @@
                 }
                 $_SESSION['data'] = $data;
                 $i = 1;
+                echo '<div class="row-products">';
                 foreach ($data as $item) {
-                    if($i % 3 == 1) {echo '<div class="row-products">';}
                     $str = serialize($item);
                     $strenc = urlencode($str);
-                    
                     if(isset($_SESSION['current_user']) && isset($item["vendorUsername"])){
                         if($item["vendorUsername"]==$_SESSION['current_user']['username']){
                             echo 
                                 '
                                 <div class="col-product">
-                                    <a href="./Product_details.php?data=' . $strenc .' ">
+                                    <a href="#">
                                         <img src="/img/'. $item['imagefileName'] .'" alt="">
                                     <p class="product-des">'. $item['name'] .'</p>
                                     <p class="price">'. $item['price'] .'</p>
@@ -53,12 +52,12 @@
                                     </a>
                                 </div>
                                 ';
-                                if($i % 3 == 0) {echo '</div>'; } 
                                 ++$i;
                             }
                     }
-                    
                 }
+                echo '</div>';   
+
                 // Close file
                 fclose($file);
             ?>

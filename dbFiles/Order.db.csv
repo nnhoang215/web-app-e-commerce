@@ -1,5 +1,6 @@
 orderID,username,vendorID,totalAmount,products,status,hubID,shippingCost
-1,aaa123,null,null,null,active,123A,null
-0,null,null,null,null,active,123B,null
-12,null,null,null,null,active,123C,null
-13,null,null,null,null,active,123C,null
+16,thu123,vendor1,50000,"Coca 2;Pho 1",active,123C,0
+48,thu123,vendor1,50000,"Coca Cola;Pho 1",active,123C,0,
+20,thu123,lotumo123,285000,"Hoodie 1;Pho 2",active,123C,0,
+80,thu123,vendor1,50000,"Coca Cola;Pho 1",active,123B,0,
+86,thu123,lotumo123,550000,"Coca 2;Hoodie 2;Hoodie 1;Pho 2",delivered,123C,0,

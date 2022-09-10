@@ -15,7 +15,6 @@ body {
   background-color: #e3f2fd;
 }
 
-
 /* ----------------------------- */
 /* ------------Reusable components-------------- */
 /* ----------------------------- */
@@ -50,7 +49,7 @@ body {
   opacity: 0.4;
 }
 
-h1{
+h1 {
   background: -webkit-linear-gradient(rgb(53, 124, 238), rgb(241, 22, 186));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -354,15 +353,13 @@ span {
 /* ---------------------------------- */
 
 .view-my-products {
-  margin-top: 30px;
-  margin-bottom: 50px;
+  margin: 50px;
 }
 .header-addmore {
   display: flex;
   justify-content: space-around;
 }
 .header-my-products {
-  margin-left: -100px;
   text-transform: uppercase;
   margin-bottom: 50px;
   font-size: 150%;
@@ -584,6 +581,8 @@ span {
 .row-products {
   display: flex;
   justify-content: center;
+  flex-flow: row wrap;
+  width: 800px;
 }
 
 .row-products .col-product {
@@ -656,7 +655,6 @@ span {
 .price-range-filter h2 {
   border-bottom: solid 1px;
 }
-
 
 /* -------------------------- */
 /* -------Product details-------- */
@@ -776,56 +774,56 @@ td {
 /* ------------------------------- */
 /* ------Shippper----------------- */
 /* ------------------------------- */
-.shipper-main-page h1{
+.shipper-main-page h1 {
   margin-left: 20px;
   margin-top: 20px;
   margin-bottom: 20px;
   text-transform: uppercase;
 }
-.order-container a, .order-container-field{
+.order-container a,
+.order-container-field {
   display: flex;
   justify-content: space-around;
   align-items: center;
   border: solid black 1px;
   padding-right: 5px;
-  padding-left:  5px;
+  padding-left: 5px;
   background-color: #fff;
   max-width: 800px;
-  margin:0 auto;
+  margin: 0 auto;
   margin-bottom: 20px;
 }
 
 .order-conatiner a:hover,
-.order-container a:active{
+.order-container a:active {
   background-color: #515050;
 }
 
-.order-container a{
+.order-container a {
   text-decoration: none;
 }
-
 
 /* --------------------------------- */
 /* -------Order Detail-------------- */
 /* --------------------------------- */
 
-.order_detail .container{
-  margin:0 auto;
+.order_detail .container {
+  margin: 0 auto;
   margin-top: 20px;
   margin-bottom: 50px;
   display: flex;
   flex-direction: column;
 }
 
-.order_detail .container .row{
+.order_detail .container .row {
   display: flex;
 }
 
-.order_detail .container .row .col{
+.order_detail .container .row .col {
   flex: 1;
 }
 
-.order_detail  h1{
+.order_detail h1 {
   margin-top: 50px;
   text-align: center;
   background: -webkit-linear-gradient(rgb(53, 124, 238), rgb(241, 22, 186));
@@ -837,32 +835,32 @@ td {
 /* ------Regis Role--------- */
 /* ------------------------- */
 
-.roles{
+.roles {
   /* min-height: calc(68vh - 40px); */
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.roles h1{
+.roles h1 {
   margin-top: 100px;
 }
 
-.role-box{
+.role-box {
   border: solid 1px black;
   border-radius: 5px;
   background-color: white;
   padding: 20px 20px;
   margin-top: 10px;
   margin-bottom: 10px;
-  transition: all .3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
-.role-box a{
+.role-box a {
   text-decoration: none;
 }
 
 .role-box:hover,
-.role-box:active{
+.role-box:active {
   background-color: #bdbdbd;
 }

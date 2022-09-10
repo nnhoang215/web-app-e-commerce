@@ -61,7 +61,7 @@
                 ?>
                 <input class="clear-button" type="button" value="Clear" onclick="ClearAll()">
             </div>
-            <button onClick="Reset()" class="order-button" type="submit" >Order Now</button>            
+            <button name="order" onClick="Reset()" class="order-button" type="submit" >Order Now</button>            
             <button type="button" onclick="location.href='/Customer_pages/Customer_home_page.php'" class="home-button">Homepage</button>            
 
         </form>
@@ -71,10 +71,11 @@
 
         <table>
         <?php 
+          if (isset($_POST['order'])) {
     $file = fopen('../dbFiles/Order.db.csv', 'a');
     fputcsv($file, $_POST );
     fclose($file);
-
+          }
 ?>
 </table>
 
@@ -129,8 +130,8 @@
             list += "<tr><td><i>No item in cart</i></td></tr>\n";
         }
         list += "<tr><td class='table_title'>Total</td><td><input type='hidden' value='"+ totalPrice +"' name='totalPrice'>" + totalPrice + "</td>\n";
-        list += "<tr><td class='table_title'>Product Items</td><td><input type='hidden' value='"+ productlist+"' name='productlist'>" + productlist + "</td>\n";
-        console.log(localStorage);
+        var productListString=String(productlist).replaceAll(",",";");
+        list += "<tr><td class='table_title'>Product Items</td><td><input type='hidden' value='"+ productListString+"' name='productlist'>" + productlist + "</td>\n";
         
         document.getElementById('list').innerHTML = list;
     } else {
